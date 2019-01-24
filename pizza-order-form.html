@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Pizza Order Form</title>
+    </head>
+    <body>
+        <form method="GET" action="https://request-inspector.gitch.me/">
+            <h1>Pizza Loco</h1>
+            <p>WOOD-FIRED PIZZERIA & STREET FOOD</p>
+            <hr>
+            <h2>Customize your pie</h2>
+
+            <br>
+            <h4>Select pizza size:</h4>
+            <select name="size" id="Size">
+                <option value="x large">X Large</option>
+                <option value="large">Large</option>
+                <option value="medium">Medium</option>
+                <option value="small">Small</option>
+            </select>
+            <br>
+
+            <br>
+            <h4>Select your crust:</h4>
+            <select name="crust" id="Crust">
+                <option value="thin">Thin</option>
+                <option value="hand-tossed">Hand-tossed</option>
+                <option value="thick">Thick</option>
+                <option value="gluten-free">Gluten-free</option>
+            </select>
+            <br>
+            <br>
+
+            <br>
+           <fieldset>
+               <legend><strong>Select your toppings</strong></legend>
+                <input type="checkbox" name="toppings" id="Pepperoni" value="pepperoni">
+                <label for="pepperoni">Pepperoni</label>
+                <input type="checkbox" name="toppings" id="Sausage" value="sausage">
+                <label for="sausage">Sausage</label>
+                <input type="checkbox" name="toppings" id="Bacon" value="bacon">
+                <label for="bacon">Bacon</label>
+                <input type="checkbox" name="toppings" id="Ham" value="ham">
+                <label for="ham">Ham</label>
+                <input type="checkbox" name="toppings" id="Mushrooms" value="mushrooms">
+                <label for="mushrooms">Mushrooms</label><br>
+                <input type="checkbox" name="toppings" id="Cheese" value="cheese">
+                <label for="cheese">Cheese</label>
+                <input type="checkbox" name="toppings" id="Onions" value="onions">
+                <label for="onions">Onions</label>
+                <input type="checkbox" name="toppings" id="Bellpepper" value="bellpepper">
+                <label for="bellpepper">Bellpepper</label>
+                <input type="checkbox" name="toppings" id="Olives" value="olives">
+                <label for="olives">Olives</label>
+                <input type="checkbox" name="toppings" id="Pineapple" value="pineapple">
+                <label for="pineapple">Pineapple</label>
+           </fieldset>
+            <br>
+
+            <br>
+            <label for="special instructions"><strong>Special Instructions</strong></label>
+            <br>
+            <textarea name="special instructions" id="special instructions" placeholder="Food allergies, etc." rows="8" cols="55"></textarea>
+            <br>
+
+            <br>
+          <fieldset>
+              <legend><strong>Delivery method</strong></legend>
+                <input type="radio" name="delivery method" id="Delivery" value="delivery">
+                <label for="delivery">Delivery</label>
+                <input type="radio" name="delivery method" id="Carry-out" value="Carry-out">
+                <label for="carry-out">Carry-out</label>
+          </fieldset>
+            <br>
+
+            <br>
+            <label for="email"><strong>Email:</strong></label>
+            <input id="email" name="email" type="text" placeholder="Enter email">
+            <br>
+
+            <br>
+            <label for="password"><strong>Password:</strong></label>
+            <input type="password" id="password" name="password" placeholder="Enter password">
+            <br>
+
+            <input type="hidden" name="order_id" value="54321">
+
+            <br>
+            <br>
+            <button><strong><em>Make my Order!</em></strong></button>
+            <br>
+            <br>
+
+
+
+
+
+        </form>
+    </body>
+    </html>

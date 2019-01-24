@@ -1,10 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Register With Us</title>
+    </head>
+    <body>
+        <form method="POST" action="https://request-inspector.glitch.me/">
 
-</body>
+            <h1><em>Veridian Dynamics</em></h1>
+            <hr>
+            <h3>Registration Form</h3>
+            <br>
+
+            <label for="email"><strong>Email:</strong></label>
+            <input id="email" name="email" type="text" placeholder="Enter email">
+            <br>
+
+            <label for="password"><strong>Password:</strong></label>
+            <input type="password" id="password" name="password" placeholder="Enter password">
+            <br>
+
+            <br>
+            <br>
+            <label for="bio"><strong>Bio</strong></label>
+            <br>
+            <textarea name="bio" id="bio" placeholder="Tell us about yourself!" rows="8" cols="55"></textarea>
+            <br>
+            <br>
+
+            <br>
+            <fieldset>
+                <legend><strong>How did you hear about us?</strong></strong></legend>
+            <input type="checkbox" id="Billboard" name="mktg_1" value="billboard">
+            <label for="billboard">Billboard</label>
+            <br>
+            <input type="checkbox" id="Radio Advertisement" name="mktg_1" value="radio advertisement">
+            <label for="radio advertisement">Radio advertisement</label>
+            <br>
+            <input type="checkbox" id="Internet Advertisement" name="mktg_1" value="internet advertisement">
+            <label for="internet advertisement">Internet advertisement</label>
+            <br>
+            <input type="checkbox" id="Other" name="mktg_1" value="other">
+            <label for="other">Other</label>
+            </fieldset>
+            <br>
+
+
+            <h4>Please select your browser:</h4>
+            <select name="browser" id="browser">
+                <option value="chrome">Chrome</option>
+                <option value="safari">Safari</option>
+                <option value="opera">Opera</option>
+                <option value="explorer">Internet Explorer</option>
+                <option value="firefox">Firefox</option>
+                <option value="other">Other</option>
+            </select>
+
+            <br>
+            <br>
+            <br>
+            <button type="submit">Submit form</button>
+
+        </form>
+    </body>
 </html>
