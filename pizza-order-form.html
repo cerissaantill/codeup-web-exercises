@@ -3,14 +3,35 @@
     <head>
         <meta charset="UTF-8">
         <title>Pizza Order Form</title>
+        <link rel="stylesheet" type="text/css" href="css/pizza-order-form_style.css">
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
     </head>
     <body>
         <form method="GET" action="https://request-inspector.gitch.me/">
-            <h1>Pizza Loco</h1>
-            <p>WOOD-FIRED PIZZERIA & STREET FOOD</p>
-            <hr>
-            <h2>Customize your pie</h2>
 
+            <div class="main-nav">
+                <ul class="nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="#">Order</a></li>
+                    <li><a href="#">Locations</a></li>
+                </ul>
+            </div>
+
+            <!--Header Section-->
+            <header class="header">
+                <img src="img/pizza1.jpg" alt="Sliced Pizza" class="profile-image">
+                <h1 id="main_header">Pizza Loco</h1>
+                <p id="sub_header"><strong>WOOD-FIRED PIZZERIA & STREET FOOD</strong></p>
+                <hr>
+            </header>
+
+            <!--Begin Main Section -->
+            <h2 id="header_2"><em>Customize your pie</em></h2>
+
+            <!--Pizza Size Dropdown-->
             <br>
             <h4>Select pizza size:</h4>
             <select name="size" id="Size">
@@ -21,6 +42,7 @@
             </select>
             <br>
 
+            <!--Select Crust Dropdown-->
             <br>
             <h4>Select your crust:</h4>
             <select name="crust" id="Crust">
@@ -32,6 +54,7 @@
             <br>
             <br>
 
+            <!--Toppings Checkbox -->
             <br>
            <fieldset>
                <legend><strong>Select your toppings</strong></legend>
@@ -49,8 +72,8 @@
                 <label for="cheese">Cheese</label>
                 <input type="checkbox" name="toppings" id="Onions" value="onions">
                 <label for="onions">Onions</label>
-                <input type="checkbox" name="toppings" id="Bellpepper" value="bellpepper">
-                <label for="bellpepper">Bellpepper</label>
+                <input type="checkbox" name="toppings" id="Bell-pepper" value="bell-pepper">
+                <label for="bell-pepper">Bell-pepper</label>
                 <input type="checkbox" name="toppings" id="Olives" value="olives">
                 <label for="olives">Olives</label>
                 <input type="checkbox" name="toppings" id="Pineapple" value="pineapple">
@@ -58,12 +81,14 @@
            </fieldset>
             <br>
 
+            <!--Special Instructions Textarea-->
             <br>
             <label for="special instructions"><strong>Special Instructions</strong></label>
             <br>
             <textarea name="special instructions" id="special instructions" placeholder="Food allergies, etc." rows="8" cols="55"></textarea>
             <br>
 
+            <!--Delivery Method Checkbox-->
             <br>
           <fieldset>
               <legend><strong>Delivery method</strong></legend>
@@ -74,6 +99,7 @@
           </fieldset>
             <br>
 
+            <!--Email & Password Entry-->
             <br>
             <label for="email"><strong>Email:</strong></label>
             <input id="email" name="email" type="text" placeholder="Enter email">
@@ -84,18 +110,25 @@
             <input type="password" id="password" name="password" placeholder="Enter password">
             <br>
 
+            <!--Hidden input-->
             <input type="hidden" name="order_id" value="54321">
 
+            <!--Submit-->
             <br>
             <br>
             <button><strong><em>Make my Order!</em></strong></button>
             <br>
             <br>
 
-
-
-
-
         </form>
+
+        <footer>
+            <ul>
+                <li><a href="http://twitter.com" target="_blank" class="social twitter">Twitter</a></li>
+                <li><a href="http://facebook.com" target="_blank" class="social facebook">Facebook</a></li>
+                <li><a href="http://instagram.com" target="_blank" class="social instagram">Instagram</a></li>
+            </ul>
+            <p class="copyright">Copyright 2019, Pizza Loco</p>
+        </footer>
     </body>
     </html>

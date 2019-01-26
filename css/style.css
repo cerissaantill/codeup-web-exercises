@@ -1,0 +1,60 @@
+
+/*-- Style for welcome.html  --*/
+
+
+
+.header {
+    text-align: center;
+}
+
+.fancy-header {
+    color: purple; /* single line comment */
+    text-decoration: underline;
+}
+
+.header {
+    color: #000080;
+    background-color: #f0ffff;
+}
+
+.sub_header {
+    color: #696969;
+    text-decoration: underline;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+body {
+    background-image: url(img/concrete_wall.jpeg);
+}
+
+li {
+    list-style: georgian inside;
+}
+
+body {
+    font-family: Raleway;
+}
+
+/* mouse hover over link, color aqua */
+a:hover {
+    color: #00ffff;
+}
+
+
+
+/* these instructions need to be adjusted to suit exercise
+
+
+table {
+
+}
+
+td {
+    border: solid black 1px;
+}
+
+
+*/
