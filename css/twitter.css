@@ -22,80 +22,77 @@ header {
     min-height: 300px;
     padding-top: 275px;
 }
-
 a {
     color: var(--link-color);
 }
-
-.top-nav {
-    background: var(--light-bg);
-    z-index: 1000;
+.container {
+    margin-top: 2em;
 }
 
+/*--- Nav bar-----------*/
+.top-nav {
+    background: var(--light-bg);
+    position: fixed;
+    width: 100%;
+    z-index: 1; /* put floated profile image in the flow so it wouldn't cover the nav bar when scrolling */
+}
 .nav {
     justify-content: space-around;
     list-style-type: none;
     padding: 1.5em;
     margin: 0 auto;
-
 }
-
 .nav-link {
     color: var(--main-link-color);
     font-weight: bold;
     text-decoration: none;
 }
-
 .nav-link:hover {
     color: var(--link-color);
 }
-
 .nav-item {
-    display: inline-block;
+    display: inline-block; /*---horizontal nav bar */
     padding: 1.5em;
 }
-
 .profile {
     background: var(--light-bg);
     height: 80px;
-
 }
-
 .profile-form {
     float: right;
     line-height: 80px;
 }
-
 .profile-items {
     list-style: none;
     padding: 0;
 }
-
 .profile-image {
     position: absolute;
-    top: 360px;
+    top: 250px;
 }
 
+/*--- 3 Columns -------------*/
+.profile-details,
+.timeline,
+.who-to-follow {
+    float: left;
+}
 .profile-details {
     width: calc(25%- 1em);
     margin: 0 .5em;
-    float: left;
 }
-
 .timeline {
     width: calc(50%- 1em);
     margin: 0 .5em;
-    float: left;
 }
-
-
 .who-to-follow {
     width: calc(25%- 1em); /* property: calc(expression (width-margin)) */
     margin: 0 .5em;
-    float: left;
 }
+
+
 .profile-items {
-    list-style: none;
+    list-style: none; /* removed bullets */
     padding: 0;
 }
 .profile-entry {
@@ -113,9 +110,6 @@ a {
     font-size: 1.3em;
     padding: 10px;
 }
-.container {
-    margin-top: 2em;
-}
 .media {
     width: 100%;
     background: var(--light-bg);
@@ -126,21 +120,17 @@ a {
 .media-image {
     max-width: 50px;
     float: left;
-    margin-top: 1.33em;
+    margin-top: 1.33em 0 0 0;
 }
-
 .media-body {
-    width: calc(100%- 50px);
+    width: calc(100%-50px);
     float: left;
 }
-
-
 .img-circle {
     border-radius: 100%;
     border: 4px solid var(--light-bg);
 }
-
-.text-right {
+.text-right { /*- aligning Edit button on right */
     text-align: right;
 }
 .text-muted {
