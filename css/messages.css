@@ -1,0 +1,51 @@
+
+body, html {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Ubuntu, sans-serif;
+}
+
+/* Exercise bonus answer:
+ :root {
+    --bg-info: rgb(208,222,252);
+    --text-info: rgb(74,71,154);
+    --bg-success: rgb();
+    --text-success: rgb();
+    --bg-warning: rgb();
+    --text-warning: rgb();
+    --bg-error: rgb();
+    --text-error: rgb();
+ */
+
+
+
+.message {
+    box-sizing: border-box;
+    padding: 0.5em;
+    margin: .6em;
+    border-radius: 5px;
+    border: solid lightgrey 1px;
+}
+
+.message-info {
+    background-color: rgb(208,222,252);
+    color: rgb(74,71,154);
+}
+
+.message-success {
+    background-color: rgb(214,242,220);
+    color: rgb(38,114,70)
+}
+
+.message-warning {
+    background-color: rgb(252,250,206);
+    color: rgb(149,134,59);
+}
+
+.message-error {
+    background-color: rgb(244,212,215);
+    color: rgb(137,62,74);
+}
+
