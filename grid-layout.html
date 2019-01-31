@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <meta charset="UTF-8">
+        <title>Grid Layout</title>
+        <link rel="stylesheet" href="css/grid-layout.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .row div {
+                background: lightgrey;
+                border: solid black 1px;
+            }
+            div.row {
+                margin-top: 2em;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="row">
+                    <div class="column one-half">1/2</div>
+                    <div class="column one-half">1/2</div>
+                </div>  <!-- /row -->
+                <div class="row">
+                    <div class="column one-third">1/3</div>
+                    <div class="column one-third">1/3</div>
+                    <div class="column one-third">1/3</div>
+                </div> <!-- /row -->
+                <div class="row">
+                    <div class="column one-fourth">1/4</div>
+                    <div class="column one-fourth">1/4</div>
+                    <div class="column one-fourth">1/4</div>
+                    <div class="column one-fourth">1/4</div>
+                </div> <!-- /row -->
+                <div class="row">
+                    <div class="column one-eighth">1/8</div>
+                    <div class="column one-eighth">1/8</div>
+                    <div class="column one-eighth">1/8</div>
+                    <div class="column one-eighth">1/8</div>
+                    <div class="column one-eighth">1/8</div>
+                    <div class="column one-eighth">1/8</div>
+                    <div class="column one-eighth">1/8</div>
+                    <div class="column one-eighth">1/8</div>
+                </div> <!-- /row -->
+                <div class="row">
+                    <div class="column one-fourth">1/4</div>
+                    <div class="column one-half">1/2</div>
+                    <div class="column one-eighth">1/8</div>
+                    <div class="column one-eighth">1/8</div>
+                </div> <!-- /row -->
+
+                <!-- BONUS Exercise
+                <div class="column two-third"></div>
+                <div class="column three-eighth"></div>
+                <div class="column two-fourth"></div>
+                <div class="column three-sixth"></div>
+                -->
+
+            </div> <!-- /(parent) row -->
+        </div> <!-- /container -->
+    </body>
+</html>
+

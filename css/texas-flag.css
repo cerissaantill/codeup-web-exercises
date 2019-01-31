@@ -1,0 +1,96 @@
+
+body {
+    background-color: #000;
+}
+
+.flag {
+    position: relative;
+    width: 600px;
+    margin: 3% auto;
+    height: 400px;
+}
+
+.blue,
+.stripes {
+    float: left;
+}
+
+.white,
+.red {
+    width: 400px;
+    height: 200px;
+    background-color: white;
+}
+
+.red {
+    background-color: rgba(170,38,53);
+}
+.blue {
+    width: 33%;
+    height: 400px;
+    background-color: rgb(11,39,97);
+}
+.starContainer {
+    width: 200px;
+    height: 200px;
+    margin: 87% -10%;
+    -moz-transform: scale(0.75) translate(-20px);
+    transform: rotate(35deg);
+
+}
+
+.star {
+    zoom: .75;
+    margin: 50px 0;
+    position: relative;
+    display: block;
+    color: white;
+    width: 0;
+    height: 0;
+    border-right: 100px solid transparent;
+    border-bottom: 70px solid white;
+    border-left: 100px solid transparent;
+    -moz-transform: rotate(35deg);
+}
+
+.star:before {
+    border-bottom: 80px solid white;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: -45px;
+    left: -65px;
+    display: block;
+    content: '';
+    -webkit-transform: rotate(-35deg);
+    -moz-transform:    rotate(-35deg);
+    -ms-transform:     rotate(-35deg);
+    -o-transform:      rotate(-35deg);
+}
+
+.star:after {
+    position: absolute;
+    display: block;
+    color: white;
+    top: 3px;
+    left: -105px;
+    width: 0;
+    height: 0;
+    border-right: 100px solid transparent;
+    border-bottom: 70px solid white;
+    border-left: 100px solid transparent;
+    -webkit-transform: rotate(-70deg);
+    -moz-transform:    rotate(-70deg);
+    -ms-transform:     rotate(-70deg);
+    -o-transform:      rotate(-70deg);
+    content: '';
+}
+
+
+
+
+
+
+
