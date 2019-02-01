@@ -1,0 +1,23 @@
+
+.navbar {
+    position: relative;
+}
+
+.background_img_jumbotron {  /* used to avoid styling Bootstrap classes directly in case used again */
+    background-image: url(../img/pizza.png);
+}
+
+.pizza-img h1 {
+    background: white;
+    opacity: .6%;
+}
+
+
+.card {
+    width: 100%;
+}
+
+
+
+
+/*-- card header blue -- rgb(51,124,246) --*/
