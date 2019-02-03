@@ -1,23 +1,60 @@
-
-.navbar {
-    position: relative;
+* {
+    box-sizing: border-box;
 }
 
-.background_img_jumbotron {  /* used to avoid styling Bootstrap classes directly in case used again */
-    background-image: url(../img/pizza.png);
+body {
+    margin: 0;
 }
 
-.pizza-img h1 {
-    background: white;
-    opacity: .6%;
+.container {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 1200px;
 }
 
+.background_img_jumbotron {
+    background-image: url("../img/pizza.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 
-.card {
+.row {
     width: 100%;
 }
 
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.large-column,
+.medium-column,
+.small-column {
+    float: left;
+    width: 100%;
+    padding: 0 10px;
+}
+
+@media screen and (min-width: 500px) {
+    .small-column {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .small-column {
+        width: 25%;
+    }
+    .medium-column {
+        width: 50%;
+    }
+    .small-offset {
+        margin-left: 25%;
+    }
+}
 
 
 
-/*-- card header blue -- rgb(51,124,246) --*/
+
+
