@@ -10,10 +10,21 @@
  */
 
 function sayHello(name) {
-    var output = "Hello " + name;
-    return output;
+    return "Hello " + name;
 }
-   // console.log(sayHello("Cerissa"));
+
+
+
+
+Another way to write the answer
+(as a Function Expression):
+var sayHello = function(name) {
+    return "Hello, " + name;
+};
+
+
+
+
 
 
 /**
@@ -66,14 +77,12 @@ var random = Math.floor((Math.random() * 3) + 1);
  */
 
 function isTwo(random) {
-    if (random === 2) {
-        return true;
-    } else {
-        return false;
-    }
+    return random === 2;
 }
-console.log(isTwo(2));
 
+console.log(isTwo(2)); // returns true
+console.log(isTwo(1)); // false
+console.log(isTwo(3)); // false
 
 
 
@@ -89,12 +98,13 @@ console.log(isTwo(2));
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
 
-function calculateTip(tipPercentage, total) {
-    var output = tipPercentage * total;
-    var dollar = output.toFixed(2);
-    return dollar;
+function calculateTip(tipPercentage, billTotal) {
+    return tipPercentage * billTotal;
+    // var output = tipPercentage * billTotal;
+    // var dollar = output.toFixed(2);
+    // return dollar;
 }
- console.log(calculateTip(0.15, 75.99));
+ console.log(calculateTip(0.15, 75.99)); // returns 11.40
 
 
 
@@ -106,8 +116,12 @@ function calculateTip(tipPercentage, total) {
  * then display the dollar amount they should tip
  */
 
-var billAmount
+var bill = prompt("What is the total of the bill? ");
+var tip = prompt("How much of a tip did you want to leave? ");
 
+var formattedTip = calculateTip(tip/100, bill);
+
+alert("You should tip: $" + formattedTip);
 
 
 
@@ -120,12 +134,23 @@ var billAmount
  *
  * Example:
  * > var originalPrice = 100;
- * > var dicountPercent = .2; // 20%
- * > applyDiscount(originalPrice, dicountPercent) // 80
+ * > var discountPercent = .2; // 20%
+ * > applyDiscount(originalPrice, discountPercent) // 80
  *
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
+function applyDiscount(price, discountPercentage) {
+    return price - (price * discountPercentage);
+}
 
+    console.log(applyDiscount(100, 0.2)); // 80
+    console.log(applyDiscount(45.99, 0.12)); // 40.4712
+
+
+
+
+// TDD: test driven development - means you write the test for the code
+// before actually writing the code.
 
 
 
