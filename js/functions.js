@@ -16,13 +16,11 @@ function sayHello(name) {
 
 
 
-Another way to write the answer
-(as a Function Expression):
+// Another way to write the answer
+// (as a Function Expression):
 var sayHello = function(name) {
     return "Hello, " + name;
 };
-
-
 
 
 
