@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Loops Practice | 2.13.2019</title>
+    </head>
+    <body>
+    <script>
+    "use strict"
+
+//  Write a while loop that logs numbers 1-50 but backwards.
+//  Refactor with a do while loop
+//  Refactor with a for loop
+
+//-- WHILE ---
+
+        // ANSWER
+        var x = 50;
+        while(x >= 1) {
+            console.log(x);
+            x--
+        }
+
+        // MY WORK
+        var counter1 = 50;
+        while (counter1 < 50) {
+            console.log (counter1);
+            counter1 = counter1 - 1;
+        }
+
+
+//-- DO WHILE ---
+
+        //ANSWER
+        do {
+            console.log(x);
+            x--
+        } while (x >= 1);
+
+
+        // MY WORK
+        var counter2 = 50;
+        do {
+            counter2 = counter2 -1;
+            console.log(counter2);
+        } while (counter2 < 50);
+
+
+//-- FOR ---
+        //ANSWER
+        for(x; x >= 1; x--) {
+        console.log(x);
+         }
+
+        //MY WORK
+        for (var counter = 50; counter < 50; counter--){
+            console.log(counter);
+        }
+
+
+//-- BREAK & CONTINUE ---
+
+        //random number from 1-5
+        var randomNumber = Math.floor(Math.random() * 25) + 1;
+        console.log(randomNumber);
+        // if this is placed inside the Loop, it will generate a random
+        // number each time the loop runs.
+
+        for (x = 1; x <= 25; x++) {
+        console.log(x);
+
+            if(x === randomNumber) {
+                console.log('The number is: ' + x);
+                break;
+            }
+        }
+
+
+//-- ITERATION OF A LOOP ---
+
+    //example from curriculum
+
+        for (var i = 1; i < 100; i++) {
+
+            if (i % 2 !==0) {
+                //number isn't even
+                //odd numbers aren't as cool
+                //skip the rest of the loop and continue with the next iteration
+                continue;
+            }
+            console.log('Here is a lovely even number: ' + i);
+        }
+
+
+
+//-- FUNCTIONS IN A LOOP ---
+
+        function cubed(x) {
+            for (var a = 1; a <= x; a++) {
+                if (a % 2 === 0) {
+                    continue;
+                }
+                if(a === x) {
+                    break;
+                }
+                console.log("The cube of " + a + " is " +  a*a*a);
+            }
+        }
+
+        cubed(50);
+
+
+
+
+    </script>
+
+    </body>
+</html>
