@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Intro to Objects Practice</title>
+    </head>
+    <body>
+    <script>
+// *** Lecture notes are on Github: add objects lecture notes ***
+
+        // **** Arrays of Objects will be on future assessments ****
+        // study iterating over array objects
+        // practice forEach Loops - it's a way to iterate over a collection.
+
+
+
+//------ INTRO TO OBJECTS --------- //
+
+// Mini Exercise 0
+
+// Create a few beverage objects and assign values to each object for
+// the following properties:
+//
+//     - brandName
+//     - type
+//     - volumeInLiters
+//     - priceInCents
+//     - expirationDate
+//     - dateTimesOfLastSips
+//     - isOpen
+//
+// Define your objects using both literal syntax to create all properties
+// and values at once and also try defining empty objects and assign
+// property values in separate statements.
+
+
+        // var beverage = {};
+        //     beverage.brandName = 'Topo Chico',
+        //     beverage.type = 'sparkling water',
+        //     beverage.volumeInLiters = 1,
+        //     beverage.priceInCents = 500,
+        //     beverage.expirationDate = 'Dec 31, 2020',
+        //     beverage.dateOfLastSips = [
+        //         '9pm Feb 15, 2019',
+        //         '8am Feb 14, 2019'
+        //         ];
+        //     beverage.isOpen = true;
+        //
+        // console.log(beverage);
+
+
+//////////////////////////////////////////////////////
+
+// MINI EXERCISE 1
+
+// Arrays of Objects...(users)
+
+
+        // var users = [
+        //     {
+        //         name: 'Sam',
+        //         age: 21
+        //     },
+        //     {
+        //         name: 'Cathy',
+        //         age: 34
+        //     },
+        //     {
+        //         name: 'Karen',
+        //         age: 43
+        //     }
+        // ];
+
+
+
+// forEach version of console logging
+
+//         users.forEach(function(element, index, array){
+//             console.log(element.age);
+//         });
+//
+//         users.forEach(function(user, i) {
+//             console.log(user.age + ' at index' + i);
+//         });
+//
+//
+//         forEach version of changing a value
+//         users.forEach(function(element, index, array){
+//             element.name = element.name.toUpperCase();
+//
+//         })
+//
+//         console.log(users);
+
+///////////////////////////////////////////////////////
+
+// MINI EXERCISE 2
+
+// Can you accomplish each step using iteration?
+
+        var users = [
+            {
+                name: "Sam",
+                age: 21
+            },
+            {
+                name: "Cathy",
+                age: 34
+            },
+            {
+                name: "Karen",
+                age: 43
+            }
+        ];
+
+// 1. Log the names of all users in a single console log separated by spaces
+        var userMessage = "";  /* << creates something of a string container for the
+                                      console logged message */
+        users.forEach(function(element, index, array){
+        userMessage += element.name + " ";
+        });
+
+        console.log(userMessage);
+
+
+
+// 2. Change the names of all users to "John Doe"
+        users.forEach(function(element){
+            element.name = 'John Doe';
+        });
+
+        console.log(users);
+
+
+
+// 3. Increase the current age of all users by 1
+        users.forEach(function(element) {
+            element.age = element.age + 1;
+        });
+
+        console.log(users);
+
+// (#2 & #3 could be done in a single forEach)
+///////////////////////////////////////////////////////////
+
+
+// Assigning Functionality to an Object
+
+    function gallop() {
+        console.log('thunk thump...thunk thump');
+    }
+
+    var pet4 = {
+        name: 'Pickles',
+        age: 20,
+        species: 'horse',
+        eat: function(food) {
+            console.log('nom nom nom ' + food);
+        }
+    };
+    pet4.gallop = gallop;
+
+    pet4.eat('carrots');
+    pet4.gallop();
+
+
+
+
+
+// Copying an Object Reference
+
+    // var petCopy = pet4; // DOESN'T WORK
+
+    // var petCopy = Object.create(pet4);
+    //
+    // petCopy.name = 'Bob';
+    //
+    // console.log(JSON.stringify(pet4));
+    // console.log(JSON.stringify(petCopy));
+
+
+
+
+
+// Copying Object Property Values
+
+
+
+
+
+
+
+
+// Comparing Objects
+
+    // console.log(pet4 === petCopy);  /* not comparing values, but is comparing _____ */
+    // console.log(pet4 === somePet);
+
+
+
+// Getting a List of Object Keys as an Array
+
+        console.log(Object.keys(pet4));
+
+
+
+
+// The this Keyword
+
+        var pet6 = {
+            name: 'Sparky',
+            age: 3,
+            isDead: false,
+            getOlder: function() {
+                console.log(pet6);
+                this.age = this.age + 1;
+                pet6.age = pet6.age  +1;
+                if (pet6.age > 7) {
+                    pet6.age = null;
+                    pet6.isDead = true;
+                }
+            }
+        };
+
+        // console.log(pet6.age);
+        pet6.getOlder();
+        console.log(pet6.age);
+
+
+// why we use the this v.
+
+
+////////////////////////////////////////////////////
+
+// MINI EXERCISE 3
+
+// PAIR UP!  :  me, carlo, marcus
+
+// Create a dog object...
+// The dog object should have properties for:
+// breed (string),
+// weightInPounds (number),
+// age (number),
+// color (string),
+// sterilized (boolean),
+// shotRecords (array of objects with properties for date and typeOfShot)
+
+// The dog object should have methods to:
+// bark() - will console.log "Woof!"
+// getOlder() - will increase age by 1
+// fix() - will set sterile to true if dog sterilized property is false
+// vaccinate() - takes in an argument for the name of the shot and adds a new shot
+// with the current date to the shotRecords array
+
+var dog = {
+    breed: 'Poodle',
+    weightInPounds: 11,
+    age: 9,
+    color: 'apricot',
+    sterilized: true,
+    shotRecords: [
+        {
+            shot: 'Rabies', date: 'Jan 1, 2019'
+        },
+        {
+            shot: 'Parvo', date: 'Jan 1, 2019'
+        },
+        {
+            shot: 'Bortadella', date: 'Jan 1, 2019'
+        }
+        ],
+
+    bark: function() {
+        console.log('Woof!');
+    },
+    getOlder: function() {
+        dog.age += 1
+    },
+    fix: function() {
+        if (dog.sterilized === false) {
+            dog.sterilized = true;
+        }
+    },
+
+    vaccinate: function(dateToday, typeOfShot) {
+        dog.shotRecords.unshift(dateToday, typeOfShot);
+    }
+};
+
+    dog.bark();
+    console.log(dog.getOlder());
+    console.log(dog.fix());
+    dog.vaccinate('Feb 15,2019', 'Rabies');
+    console.log(dog.shotRecords);
+
+
+
+    </script>
+    </body>
+</html>
