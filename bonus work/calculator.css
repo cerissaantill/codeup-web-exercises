@@ -22,7 +22,7 @@ div {
     width: 350px;
     height: 450px;
     background-color: dimgray;
-    border-radius: 50px;
+    border-radius: 12px;
     border-color:  black;
     border-width: 2px;
     border-style: solid;
