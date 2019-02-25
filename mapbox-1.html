@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Mapbox Exercise 1</title>
+
+
+
+    </head>
+    <body>
+    <!--Mini - Exercise 1-->
+    <!--In this file, create a Mapbox map that shows your home town. After 5 seconds, have the map -->
+    <!--automatically change to a map of the entire United States using a satellite style.-->
+
+
+    <!-- The HTML element that serves as the Mapbox container -->
+    <div id='map' style='width: 400px; height: 300px;'></div>
+
+
+    <!-- Mapbox JS -->
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="js/keys.js"></script>
+
+
+    <!-- Custom JS -->
+    <script>
+        // prevents from uploading token to github
+        mapboxgl.accessToken = mapboxglAccessToken;
+
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v9',
+            zoom: 10,
+            center: [-90.7195, 29.5958]
+        });
+
+        map.setZoom(8);
+
+
+
+        var interval = 5000;
+        setTimeout(function() {
+            map.setZoom('2');
+            map.setStyle('mapbox://styles/mapbox/satellite-v9');
+        }, interval);
+
+
+    </script>
+    </body>
+</html>
