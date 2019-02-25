@@ -1,5 +1,8 @@
 
+// ===========DOM Bonuses ============ //
+
 // BONUS 1 (grocery list APP)
+
 // Allow the user to enter a certain number of items and then display them on the page.
 // - for each item, prompt the user for the name of the item, and store in an array of items.
 // - for each item in the array of items create a new li element with the correct text and append to the DOM
@@ -10,6 +13,7 @@
 
 
 // BONUS 2 (custom styling)
+
 // In the same dom-bonus.html page, allow the user to select custom styling for the
 // page by setting the background color, font color, and font-family for the page.
 // Add additional style changes to have fun and experiment!
@@ -17,7 +21,10 @@
 
 
 
+
+
 // BONUS 3 (profile create form)
+
 // Create a form that will allow the user to enter the following information in
 // text inputs:
 // firstName
@@ -46,8 +53,8 @@
 //
 // Additional Features:
 //     1) store a list of times in an aside div that are appended to every time the reset button is hit
-// 2) add delete buttons for each stored time that removes the time from the aside div
-// 3) add keyboard events to control starting, pausing, and resetting
+//     2) add delete buttons for each stored time that removes the time from the aside div
+//     3) add keyboard events to control starting, pausing, and resetting
 
 
 
@@ -65,6 +72,9 @@
 // - display the word as it is being completed and the letters not already guessed with underscores
 // - a form should allow the user to type a letter guess
 // - do not accept inputs that are more than one letter or are not letters (ignore case)
-//
+
+
+
+
 // BONUS 3 - Create a zoomable font size effect with mouse scroll
 
