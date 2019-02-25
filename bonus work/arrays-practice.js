@@ -55,7 +55,7 @@
 //      – someFunction("z") // returns 26
 
 
-    ///GET ANSWER erik///
+///GET ANSWER erik on Slack ///
         function singleLetter(letter) {
             letter = input('Enter a letter: ')
 

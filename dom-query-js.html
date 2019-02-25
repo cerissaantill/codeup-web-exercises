@@ -24,7 +24,7 @@
         culpa qui officia deserunt mollit anim id est laborum.
     </p>
 
-   <!-- Exercise 2 below -->
+<!-- Exercise 2 below -->
     <button id="btn1">Change Main Header</button>
     <button id="btn2">Change Text Color</button>
     <button id="btn3">Change List Item Color</button>
@@ -36,7 +36,7 @@
             "use strict";
 
 
-            //Exercise 2 part of solution:
+//Exercise 2 part of solution:
             var button1 = document.getElementById('1');
             var button2 = document.getElementById('2');
             var button3 = document.getElementById('3');
@@ -46,75 +46,75 @@
 
 
 
-            // TODO: Uncomment next line and get the main header element by id
-                var mainHeader = document.getElementById('main-header');
+// TODO: Uncomment next line and get the main header element by id
+    var mainHeader = document.getElementById('main-header');
 
 
-            // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-                var changeMainHeader = function(event) {
-                    mainHeader.innerHTML = 'JavaScript is Cool';
-                };
+// TODO: Set inner html of mainHeader to "JavaScript is Cool"
+    var changeMainHeader = function(event) {
+        mainHeader.innerHTML = 'JavaScript is Cool';
+    };
 
-            // TODO: Uncomment the next line and get the sub header element by id
-                var subHeader = document.getElementById('sub-header');
-
-
-            // TODO: Set the text color of subHeader to blue
-                var changeTextColor = function(event) {
-                    subHeader.style.color = 'blue';
-                };
-
-            // TODO: Uncomment the next line and get all list items
-                var listItems = document.getElementsByTagName('li');
+// TODO: Uncomment the next line and get the sub header element by id
+    var subHeader = document.getElementById('sub-header');
 
 
-            // TODO: Set text color on every other list item to grey
-            // TODO: Set text color of li with dbid = 1 to blue
+// TODO: Set the text color of subHeader to blue
+    var changeTextColor = function(event) {
+        subHeader.style.color = 'blue';
+    };
 
-            var changeListItems = function(e) {
+// TODO: Uncomment the next line and get all list items
+    var listItems = document.getElementsByTagName('li');
 
-                for (var i = 0; i < listItems.length; i++) {
-                    var dbid = listItems[i].getAttribute('data-dbid');
-                    if (dbid == 1) {
-                        listItems[i].style.color = 'blue';
-                    } else if (i % 2 === 0) {
-                        listItems[i].style.color = 'grey';
-                    }
-                }
+
+// TODO: Set text color on every other list item to grey
+// TODO: Set text color of li with dbid = 1 to blue
+
+    var changeListItems = function(e) {
+
+        for (var i = 0; i < listItems.length; i++) {
+            var dbid = listItems[i].getAttribute('data-dbid');
+            if (dbid == 1) {
+                listItems[i].style.color = 'blue';
+            } else if (i % 2 === 0) {
+                listItems[i].style.color = 'grey';
             }
+        }
+    }
 
 
-            // TODO: Uncomment the next line and get all elements with class name sub-paragraph
-                var subParagraphs = document.getElementsByClassName('sub-paragraph');
+// TODO: Uncomment the next line and get all elements with class name sub-paragraph
+    var subParagraphs = document.getElementsByClassName('sub-paragraph');
 
-            // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-                var changeInnerText = function(event) {
-                    subParagraphs[0].innerText ='Mission Accomplished';
-                }
+// TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+    var changeInnerText = function(event) {
+        subParagraphs[0].innerText ='Mission Accomplished';
+    }
 
-    ///////////////////////////////////////////////////
-            //  DOM Events Exercise 2
-
-
-            // 1.
-            // Add 4 buttons to the page.
-            // Attach click event listeners to each of the buttons
-            // and have the handlers perform the modifications that were
-            // automatically taking place.
-            //
-            // For example, the first button should set inner html of mainHeader to
-            // "JavaScript is Cool".
-
-            button1.addEventListener('click', changeMainHeader,false);
-            button2.addEventListener('click', changeTextColor, false);
-            button3.addEventListener('click', changeListItems, false);
-            button4.addEventListener('click', changeInnerText, false);
+///////////////////////////////////////////////////
+    //  DOM Events Exercise 2
 
 
-            // 2. View the results in your browser to test for the expected output.
+    // 1.
+    // Add 4 buttons to the page.
+    // Attach click event listeners to each of the buttons
+    // and have the handlers perform the modifications that were
+    // automatically taking place.
+    //
+    // For example, the first button should set inner html of mainHeader to
+    // "JavaScript is Cool".
+
+    button1.addEventListener('click', changeMainHeader,false);
+    button2.addEventListener('click', changeTextColor, false);
+    button3.addEventListener('click', changeListItems, false);
+    button4.addEventListener('click', changeInnerText, false);
 
 
-        })();
+// 2. View the results in your browser to test for the expected output.
+
+
+    })();
 
     </script>
     </body>
