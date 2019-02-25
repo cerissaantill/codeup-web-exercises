@@ -12,32 +12,68 @@
 // ============================ SIMPLE FUNCTION DRILLS
 // 1) Make a function called returnTwo() that returns the number 2 when called
 // ---Test this function with console.log(returnTwo())
+    function returnTwo() {
+        return 2;
+    }
+    console.log(returnTwo());
 
 // 2) Make a function called returnName() that returns the string of your name
 // ---Test this function with console.log(returnName())
+    function returnName() {
+        return 'Cerissa';
+        }
+    console.log(returnName());
 
 // 3) Make a function called addThree() which takes in a number input and returns the number plus 3.
 // ---Test this function with console.log(addThree(5))
+    function addThree(num) {
+        return num+3;
+    }
+    console.log(addThree(5));
 
 // 4) Make a function called sayString() which returns the string input passed in.
 // ---Test this function with console.log(sayString())
 
+ // XX   function sayString() {
+ //    }
+ //    console.log(sayString());
+
+
+
 // 5) Make a function called sayHowdy() which console.logs the string “Howdy!”
 // ---Test this function by directly calling sayHowdy()
-
 // ---Remember this function does not need a defined return value
+    function sayHowdy() {
+        return 'Howdy!';
+    }
+    console.log(sayHowdy());
 
 
 
 // ============================ CHALLENGE FUNCTION DRILLS
 // Write a function called `identity(input)` that takes in an argument called input
 // and returns that input.
+    function identity(input) {
+        return input;
+    }
+
 
 // Write a function called `getRandomNumber(min, max)` that returns a random number
 // between min and max values sent to that function call.
+    var random = Math.floor((Math.random() * 10) + 1);
+    function getRandomNumber(min, max) {
+     return random;
+    }
+    console.log(getRandomNumber());
+
+
+
 
 // Write a function called `first(input)` that returns the first character in the
 // provided string.
+    function first(input) {
+
+    }
 
 // Write a function called `last(input)` that returns the last character of a string
 

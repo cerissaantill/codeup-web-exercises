@@ -10,9 +10,9 @@
  */
 
 function sayHello(name) {
-    return "Hello " + name;
+    return "Hello " + name + ".";
 }
-
+console.log(sayHello('katie'));
 
 
 
@@ -44,7 +44,7 @@ console.log(helloMessage);
  * console.
  */
 
-var myName = 'Cerissa';
+var myName = 'Cerissa Clare';
 sayHello(myName);
 console.log(sayHello(myName));
 
@@ -54,7 +54,6 @@ console.log(sayHello(myName));
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
 var random = Math.floor((Math.random() * 3) + 1);
-
 /**
  * TODO:
  * Create a function called 'isTwo' that takes a number as a parameter.
@@ -95,14 +94,14 @@ console.log(isTwo(3)); // false
  * > calculateTip(0.25, 25.50) // returns 6.37
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
-
-function calculateTip(tipPercentage, billTotal) {
-    return tipPercentage * billTotal;
-    // var output = tipPercentage * billTotal;
-    // var dollar = output.toFixed(2);
-    // return dollar;
-}
- console.log(calculateTip(0.15, 75.99)); // returns 11.40
+//
+// function calculateTip(tipPercentage, billTotal) {
+//     return tipPercentage * billTotal;
+//     // var output = tipPercentage * billTotal;
+//     // var dollar = output.toFixed(2);
+//     // return dollar;
+// }
+//  console.log(calculateTip(0.15, 75.99)); // returns 11.40
 
 
 
@@ -113,13 +112,13 @@ function calculateTip(tipPercentage, billTotal) {
  * prompt the user for the bill total and a percentage they would like to tip,
  * then display the dollar amount they should tip
  */
-
-var bill = prompt("What is the total of the bill? ");
-var tip = prompt("How much of a tip did you want to leave? ");
-
-var formattedTip = calculateTip(tip/100, bill);
-
-alert("You should tip: $" + formattedTip);
+//
+// var bill = prompt("What is the total of the bill? ");
+// var tip = prompt("How much of a tip did you want to leave? ");
+//
+// var formattedTip = calculateTip(tip/100, bill);
+//
+// alert("You should tip: $" + formattedTip);
 
 
 
