@@ -51,21 +51,24 @@
 
 // 3.  Create a function that takes a single letter and returns what number the
 //     letter is in the alphabet. Ignore case.
-//      – someFunction("a") // returns 1
-//      – someFunction("z") // returns 26
+//          – someFunction("a") // returns 1
+//          – someFunction("z") // returns 26
 
 
-///GET ANSWER erik on Slack ///
-        function singleLetter(letter) {
-            letter = input('Enter a letter: ')
+var alphabet = ['', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+                'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
-            alphabet_position(letter);
-                alphabet_pos = {'a':0, 'b':1, 'c':2, 'd':3, 'e':4, 'f':5, 'g':6, 'h':7,
-                'i':8, 'j':9, 'k':10, 'l':11, 'm':12, 'n':13, 'o':14, 'p':15, 'q':16,
-                'r':17, 's':18, 't':19, 'u':20, 'v':21, 'w':22, 'x':23, 'y':24, 'z':25}
-                pos = alphabet_pos[letter]
-            return pos
+var letter = prompt('Enter a letter').toLowerCase();
+
+function alpha() {
+    for (var i = 0; i < alphabet.length; i++) {
+        if (letter === alphabet[i]) {
+            return console.log(letter + " is the number " + i)
         }
+    }
+}
+alpha();
+
 
 
 // 4.  Create a function that returns the longest string in a given array of

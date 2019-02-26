@@ -1,6 +1,8 @@
 // ====================ARRAYS=====================-
 //   6.	Write a function that returns the sum of an array of numbers
-//   7.	Create a student roster management app. Using the user dialogue functions (alert, confirm, prompt), create an application that will prompt the user to choose from a menu with the following actions:
+//   7.	Create a student roster management app. Using the user dialogue functions
+//   (alert, confirm, prompt), create an application that will prompt the user to
+//   choose from a menu with the following actions:
 //          1) add a student
 //          2) delete a student
 //          3) view all students in alphabetical order

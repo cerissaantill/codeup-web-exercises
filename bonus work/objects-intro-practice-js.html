@@ -33,20 +33,19 @@
 // and values at once and also try defining empty objects and assign
 // property values in separate statements.
 
+        var beverage = {};
+            beverage.brandName = 'Topo Chico',
+            beverage.type = 'sparkling water',
+            beverage.volumeInLiters = 1,
+            beverage.priceInCents = 500,
+            beverage.expirationDate = 'Dec 31, 2020',
+            beverage.dateOfLastSips = [
+                '9pm Feb 15, 2019',
+                '8am Feb 14, 2019'
+                ];
+            beverage.isOpen = true;
 
-        // var beverage = {};
-        //     beverage.brandName = 'Topo Chico',
-        //     beverage.type = 'sparkling water',
-        //     beverage.volumeInLiters = 1,
-        //     beverage.priceInCents = 500,
-        //     beverage.expirationDate = 'Dec 31, 2020',
-        //     beverage.dateOfLastSips = [
-        //         '9pm Feb 15, 2019',
-        //         '8am Feb 14, 2019'
-        //         ];
-        //     beverage.isOpen = true;
-        //
-        // console.log(beverage);
+        console.log(beverage);
 
 
 //////////////////////////////////////////////////////
@@ -56,41 +55,41 @@
 // Arrays of Objects...(users)
 
 
-        // var users = [
-        //     {
-        //         name: 'Sam',
-        //         age: 21
-        //     },
-        //     {
-        //         name: 'Cathy',
-        //         age: 34
-        //     },
-        //     {
-        //         name: 'Karen',
-        //         age: 43
-        //     }
-        // ];
+        var users = [
+            {
+                name: 'Sam',
+                age: 21
+            },
+            {
+                name: 'Cathy',
+                age: 34
+            },
+            {
+                name: 'Karen',
+                age: 43
+            }
+        ];
 
 
 
 // forEach version of console logging
 
-//         users.forEach(function(element, index, array){
-//             console.log(element.age);
-//         });
-//
-//         users.forEach(function(user, i) {
-//             console.log(user.age + ' at index' + i);
-//         });
-//
-//
-//         forEach version of changing a value
-//         users.forEach(function(element, index, array){
-//             element.name = element.name.toUpperCase();
-//
-//         })
-//
-//         console.log(users);
+        users.forEach(function(element, index, array){
+            console.log(element.age);
+        });
+
+        users.forEach(function(user, i) {
+            console.log(user.age + ' at index' + i);
+        });
+
+
+        forEach version of changing a value
+        users.forEach(function(element, index, array){
+            element.name = element.name.toUpperCase();
+
+        })
+
+        console.log(users);
 
 ///////////////////////////////////////////////////////
 
@@ -114,33 +113,33 @@
         ];
 
 // 1. Log the names of all users in a single console log separated by spaces
+
         var userMessage = "";  /* << creates something of a string container for the
-                                      console logged message */
+                                                            console logged message */
         users.forEach(function(element, index, array){
-        userMessage += element.name + " ";
+            console.log(element.name);
         });
-
-        console.log(userMessage);
-
 
 
 // 2. Change the names of all users to "John Doe"
         users.forEach(function(element){
             element.name = 'John Doe';
-        });
-
         console.log(users);
-
+        });
 
 
 // 3. Increase the current age of all users by 1
         users.forEach(function(element) {
             element.age = element.age + 1;
+        console.log(users);
         });
 
-        console.log(users);
 
 // (#2 & #3 could be done in a single forEach)
+
+
+
+
 ///////////////////////////////////////////////////////////
 
 
