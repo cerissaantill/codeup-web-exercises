@@ -92,11 +92,6 @@ for(var i = 1; i <= 50; i++) {
 
 
 
-
-
-
-
-
 //
 // var random = Math.floor((Math.random()* 50)+1);
 //
