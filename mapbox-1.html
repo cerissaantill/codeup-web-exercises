@@ -14,31 +14,59 @@
 
 
     <!-- The HTML element that serves as the Mapbox container -->
+
     <div id='map' style='width: 400px; height: 300px;'></div>
 
 
+
     <!-- Mapbox JS -->
+
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
     <script src="js/keys.js"></script>
 
 
+
     <!-- Custom JS -->
+
     <script>
-        // prevents from uploading token to github
+    // prevents from uploading token to github
         mapboxgl.accessToken = mapboxglAccessToken;
 
+        // zooms in on Houma, LA
         var map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/streets-v9',
             zoom: 10,
             center: [-90.7195, 29.5958]
         });
-
         map.setZoom(8);
 
 
 
+    // setting a marker on map
+        var marker = new mapboxgl.Marker();
+
+        marker.setLngLat([-98.4896, 29.4266]);
+        marker.addTo(map);
+        marker.setDraggable(true);
+
+    // making marker draggable NOT FINISHED
+        marker.on('dragged')
+
+
+
+
+    //
+        setTimeout(function() {
+           marker.setLngLat([-98.5, 29.4266]);
+        }, 2000);
+
+
+
+
+
+    // after 5 seconds, changes map to satellite image of U.S.
         var interval = 5000;
         setTimeout(function() {
             map.setZoom('2');

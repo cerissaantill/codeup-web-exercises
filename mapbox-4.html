@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Mapbox Exercise 4</title>
+    </head>
+    <body>
+    <!--Mini - Exercise 4-->
+
+    <!--Create an HTML file called mapbox-4.html centered on San Antonio
+    that programmatically is re-centered over Zion National Park using the
+    coordinates of the park by geocoding the physical address.-->
+
+    <!--Add the latitude and longitude of Honolulu, Hawaii and use
+    reverse geocoding to move the map to this location by geocoding inside
+    of the reverseGeocode function.-->
+<!--========================================================================-->
+
+    <!-- The HTML element that serves as the Mapbox container -->
+    <div id='map' style='width: 400px; height: 300px;'></div>
+
+    <!-- Mapbox JS -->
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="js/keys.js"></script>
+
+    <!-- Custom JS -->
+    <script>
+        // prevents from uploading token to github
+        mapboxgl.accessToken = mapboxglAccessToken;
+
+    // zooms in on San Antonio, TX
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/satellite-streets-v10',
+            zoom: 9,
+            center: [-98.4936, 29.4266]
+        });
+
+        var delayer = 3000;
+
+        var timeoutId1 = setTimeout(function() {
+            console.log("Shifting Map to Zion")
+
+            geocode("Zion National Park, Utah", mapKey).then(function(data){
+                map.setCenter(data);
+            });
+        }, delayer);
+
+
+        var delay = 8000;
+
+        var timoutId2 = setTimout(function(){
+            console.log("Shifting Map to Honolulu")
+
+            reverseGeocode({lng: })
+        })
+
+
+
+
+
+
+        //
+        // var interval = 3500;
+        // setTimeout(function() {
+        //     map.setZoom('2');
+        //     map.setStyle('mapbox://styles/mapbox/satellite-v9');
+        // }, interval);
+        //
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+    </body>
+</html>

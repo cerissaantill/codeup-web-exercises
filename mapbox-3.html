@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Mapbox Exercise 3</title>
+    </head>
+    <body>
+    <!-----Mini - Exercise 3----->
+    <!--Create an HTML file called mapbox-3.html and copy your code over from -->
+    <!--mapbox-2. Add a popup to the Lincoln Memorial marker that contains the -->
+    <!--text "Lincoln Memorial"-->
+
+    <!-- The HTML element that serves as the Mapbox container -->
+    <div id='map' style='width: 400px; height: 300px;'></div>
+
+
+
+    <!-- Mapbox JS -->
+
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="js/keys.js"></script>
+
+    <!-- Custom JS -->
+
+    <script>
+    // prevents from uploading token to github
+        mapboxgl.accessToken = mapboxglAccessToken;
+
+
+
+    // zooms in on Washington DC
+    //     var map = new mapboxgl.Map({
+    //         container: 'map',
+    //         style: 'mapbox://styles/mapbox/streets-v9',
+    //         zoom: 13,
+    //         center: [-77.0369, 38.9072]
+    //     });
+    //
+    //
+    // // setting a marker on map
+    //     var marker = new mapboxgl.Marker();
+    //         marker.setLngLat(map.getCenter());
+    //         marker.addTo(map);
+    //
+    //
+    // // add popup info on a marker
+    //     var popup = new mapboxgl.Popup()
+    //         popup.setText('Lincoln Memorial');
+    //         marker.setPopup(popup);
+
+
+
+    // =========== Geocoding ===========
+    // after script tag and token code
+
+        // var codeupAddress = '600 Navarro St #350, San Antonio, TX 78205';
+        // var codeupCoor;
+        //
+
+
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom: 13,
+        center: [-77.0369, 38.9072]
+    });
+
+    geocode('Paris,TX' , mapboxglAccessToken).then(function(data) {
+          map.setCenter(data);
+        });
+
+
+    reverseGeocode([-77.0502, 38.8893], mapboxglAccessToken).then(function(data) {
+        console.log(data);
+    });
+
+
+
+    </script>
+    </body>
+</html>

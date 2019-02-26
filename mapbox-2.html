@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Mapbox Exercise 2</title>
+    </head>
+    <body>
+    <!--Mini - Exercise 2-->
+
+    <!--In this file, create a Mapbox map that shows Washington D.C.
+    and places a marker on the Lincoln Memorial.-->
+
+
+
+    <!-- The HTML element that serves as the Mapbox container -->
+    <div id='map' style='width: 400px; height: 300px;'></div>
+
+
+
+    <!-- Mapbox JS -->
+
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="js/keys.js"></script>
+
+    <!-- Custom JS -->
+
+    <script>
+    // prevents from uploading token to github
+        mapboxgl.accessToken = mapboxglAccessToken;
+
+
+
+// // zooms in on Washington DC
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/satellite-v9',
+            zoom: 15,
+            center: [-77.0369, 38.9072]
+        });
+
+
+// // setting a marker on map
+        var marker = new mapboxgl.Marker();
+        marker.setLngLat(map.getCenter());
+        marker.addTo(map);
+
+
+
+
+
+// // add popup info on a marker
+// // Codeup coordinates
+        var popup = new mapboxgl.Popup()
+            .setLngLat([-98.4861, 29.426827])
+            .setHTML("<h1>Codeup</h1>")
+            .addTo(map);
+
+// // var popup = new mapboxgl.Popup()
+            .setLngLat([-98.4861, 29.426827])
+            .setHTML("<h1>Remember the Alamo!</h1>")
+            .addTo(map);
+
+        marker.setPopup(alamoPopup);
+
+
+
+    </script>
+
+    </body>
+</html>
