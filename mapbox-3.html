@@ -25,29 +25,7 @@
 
     <script>
     // prevents from uploading token to github
-        mapboxgl.accessToken = mapboxglAccessToken;
-
-
-
-    // zooms in on Washington DC
-    //     var map = new mapboxgl.Map({
-    //         container: 'map',
-    //         style: 'mapbox://styles/mapbox/streets-v9',
-    //         zoom: 13,
-    //         center: [-77.0369, 38.9072]
-    //     });
-    //
-    //
-    // // setting a marker on map
-    //     var marker = new mapboxgl.Marker();
-    //         marker.setLngLat(map.getCenter());
-    //         marker.addTo(map);
-    //
-    //
-    // // add popup info on a marker
-    //     var popup = new mapboxgl.Popup()
-    //         popup.setText('Lincoln Memorial');
-    //         marker.setPopup(popup);
+        mapboxgl.accessToken = mapboxToken;
 
 
 
@@ -66,14 +44,14 @@
         center: [-77.0369, 38.9072]
     });
 
-    geocode('Paris,TX' , mapboxglAccessToken).then(function(data) {
-          map.setCenter(data);
-        });
+    var marker = new mapboxgl.Marker();
 
+    marker.setLngLat(map.getCenter());
+    marker.addTo(map);
 
-    reverseGeocode([-77.0502, 38.8893], mapboxglAccessToken).then(function(data) {
-        console.log(data);
-    });
+    var popup = new mapboxgl.Popup();
+    popup.setText('Lincoln Memorial');
+    marker.setPopup(popup);
 
 
 

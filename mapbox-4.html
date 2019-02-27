@@ -18,31 +18,31 @@
 
     <!-- The HTML element that serves as the Mapbox container -->
     <div id='map' style='width: 400px; height: 300px;'></div>
-
     <!-- Mapbox JS -->
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="mapbox-geocoder-utils.js"></script>
     <script src="js/keys.js"></script>
 
-    <!-- Custom JS -->
-    <script>
-        // prevents from uploading token to github
-        mapboxgl.accessToken = mapboxglAccessToken;
 
-    // zooms in on San Antonio, TX
+
+    <script>
+
+        mapboxgl.accessToken = mapboxToken;
+
         var map = new mapboxgl.Map({
             container: 'map',
-            style: 'mapbox://styles/mapbox/satellite-streets-v10',
-            zoom: 9,
-            center: [-98.4936, 29.4266]
+            style: 'mapbox://styles/mapbox/satellite-streets-v9',
+            zoom: 16,
+            center: [-98.4896, 29.4266]
         });
 
         var delayer = 3000;
 
-        var timeoutId1 = setTimeout(function() {
-            console.log("Shifting Map to Zion")
+        var timeoutId1 = setTimeout(function(){
+            console.log('Shifting Map to Zion');
 
-            geocode("Zion National Park, Utah", mapKey).then(function(data){
+            geocode('Zion National Park, Utah', mapboxToken).then(function(data){
                 map.setCenter(data);
             });
         }, delayer);
@@ -50,35 +50,36 @@
 
         var delay = 8000;
 
-        var timoutId2 = setTimout(function(){
-            console.log("Shifting Map to Honolulu")
+        var timeoutId2 = setTimeout(function () {
+            console.log("Shifting Map to Honolulu, HI")
 
-            reverseGeocode({lng: })
-        })
+            reverseGeocode({lng: -157.8583, lat: 21.3069}, mapKey).then(function(data){
+                geocode(data, mapKey).then(function(deepData){
+                    map.setCenter(deepData);
+                });
+            });
+
+        }, delay);
 
 
 
 
 
-
+        // var zionAddress = 'Zion National Park';
+        // var honCoor = {lat: 21.3069, lng: -157.8583};
         //
-        // var interval = 3500;
-        // setTimeout(function() {
-        //     map.setZoom('2');
-        //     map.setStyle('mapbox://styles/mapbox/satellite-v9');
-        // }, interval);
+        // geocode(zionAddress, mapboxToken).then(function(data){
+        //     map.setCenter(data);
+        //     map.setZoom(9);
+        // });
         //
-
-
-
-
-
-
-
-
-
-
-
+        // reverseGeocode(honCoor, mapboxToken).then(function(data) {
+        //     console.log(data);
+        //     geocode(data, mapboxToken).then(function(data) {
+        //         map.setCenter(data);
+        //         map.setZoom(9);
+        //     });
+        // });
 
 
     </script>

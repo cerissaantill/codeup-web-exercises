@@ -1,85 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Mapbox Maps API </title>
+    <head>
+        <meta charset="UTF-8">
+        <title>Mapbox Maps API </title>
+        <!--Exercise location: -->
+        <!--https://gist.github.com/jreich5/bc0d5e719891d58f15d831518e2c57a7-->
 
-    <!--Exercise location: -->
-    <!--https://gist.github.com/jreich5/bc0d5e719891d58f15d831518e2c57a7-->
-</head>
-<body>
+        <!-- Mapbox CSS -->
+        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet'>
 
-<!-- The HTML element that serves as the Mapbox container -->
-<div id='map' style='width: 400px; height: 300px;'></div>
+    </head>
+    <body>
 
+    <!-- The HTML element that serves as the Mapbox container -->
+    <div id='map' style='width: 100%; height: 400px;'></div>
 
-<!-- Mapbox JS -->
-<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
-<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
-<script src="js/keys.js"></script>
+    <!-- Mapbox JS -->
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 
-
-<!-- Custom JS -->
-<script>
-
-    var token = mapboxglAccessToken;
-    var searchPlace = 'San Antonio';
-
-    // prevents from uploading token to github
-    mapboxgl.accessToken = mapboxglAccessToken;
-
-    geocode(searchPlace, token).then(function(results){
-
-        var map = new mapboxgl
-    })
+    <!-- Mapbox Geocoder Util Methods -->
+    <script src="mapbox-geocoder-utils.js"></script>
+    <!-- external js file for access token -->
+    <script src="js/keys.js"></script>
 
 
+    <script>
 
-//8.
-    var eats = [
-        {
-            name: 'Silo',
-            address: 'Silo: Elevated Cuisine, San Antonio, TX',
-            message: 'It\'s great!'
-        },
-        {
-            name: 'Bliss',
-            address: 'Bliss, San Antonio, TX',
-            message: 'It\'s awesome!'
+        // var token = mapboxToken; // pulled in from keys.js
+        var searchPlace = 'San Antonio';
 
-        },
-        {
-            name: 'Liberty Bar',
-            address: 'Liberty Bar, San Antonio, TX',
-            message: 'It\'s super!'
-        }
-    ];
+        mapboxgl.accessToken = token;
 
-    function placeMarkerAndPopup(eatObj, token, map) {
-        return geocode(info.address, token).then(function(coordinates){
-            var popup = new mapboxgl.Popup()
-                .setHTML('<h3>' + eatObj.name + '</h3><p>' + eatObj.message + '</p>');
+        geocode(searchPlace, token).then(function(results){
 
-            return marker = new mapboxgl.Marker()
-                .setLngLat(coordinates)
-                .addTo(map)
-                .setPopup(popup);
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v9',
+                zoom: 10,
+                center: [-98.4896, 29.4266]
+            });
+
+
+
+
+
         });
-    }
-
-    // for (var i=0; i < eats.length; i +=1) {
-    //     placeMarkerAndPopup(eats[i], mapboxglAccessToken, map);
-    // }
-
-    eats.forEach(function(restaurant) {
-        placeMarkerAndPopup(restaurant, mapboxglAccessTokenToken, map);
-    });
 
 
 
-    // });
 
 
-</script>
-</body>
+
+
+
+
+    // //8.
+    //     var eats = [
+    //         {
+    //             name: 'Silo',
+    //             address: 'Silo: Elevated Cuisine, San Antonio, TX',
+    //             message: 'It\'s great!'
+    //         },
+    //         {
+    //             name: 'Bliss',
+    //             address: 'Bliss Restaurant, San Antonio, TX',
+    //             message: 'Awesome!'
+    //
+    //         },
+    //         {
+    //             name: 'Liberty Bar',
+    //             address: 'Liberty Bar, San Antonio, TX',
+    //             message: 'fun neighborhood restaurant!'
+    //         }
+    //     ];
+    //
+    //     function placeMarkerAndPopup(eatObj, token, map) {
+    //         return geocode(info.address, token).then(function(coordinates){
+    //             var popup = new mapboxgl.Popup()
+    //                 .setHTML('<h3>' + eatObj.name + '</h3><p>' + eatObj.message + '</p>');
+    //
+    //             return marker = new mapboxgl.Marker()
+    //                 .setLngLat(coordinates)
+    //                 .addTo(map)
+    //                 .setPopup(popup);
+    //         });
+    //     }
+    //
+    //     for (var i=0; i < eats.length; i +=1) {
+    //         placeMarkerAndPopup(eats[i], mapboxglAccessToken, map);
+    //     }
+
+
+
+        // eats.forEach(function(restaurant) {
+        //     placeMarkerAndPopup(restaurant, mapboxglAccessTokenToken, map);
+        // });
+
+
+
+        // });
+
+
+    </script>
+    </body>
 </html>
