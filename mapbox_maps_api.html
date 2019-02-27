@@ -12,6 +12,7 @@
         <script src="js/geocoding.js"></script>
     </head>
     <body>
+    <h1>Mapbox API Exercise</h1>
 
     <div id='map' style='width: 100%; height: 400px;'></div>
     <!-- Mapbox JS -->
@@ -43,7 +44,7 @@
                     siloMarker.addTo(map);
 
                     siloMarker.on("dragend", function(){
-                        alert('You\'re getting verrry hungry');
+                        alert('Drop it like it\'s hot');
 
                     });
 
@@ -63,33 +64,11 @@
         var foodPlaces = [
             {name: 'Silo', location: 'Silo: Elevated Cuisine, San Antonio, TX'},
             {name: 'Bliss', location: 'Bliss Restaurant, San Antonio, TX'},
-            {name: 'Liberty Bar', location: 'Liberty Bar, San Antonio, TX'}
+            {name: 'Liberty Bar', location: 'Liberty Bar, San Antonio, TX'},
+            {name: 'Sichuan House', location: 'Sichuan House, San Antonio, TX'}
         ];
 
         foodPlaces.forEach(function(element, i, array){
-
-            setTimeout(function(){
-
-                geocode(element, location, mapKey).then(function(data){
-
-                    var rotatingMarker = new mapboxgl.Marker();
-                    rotatingMarker.setLngLat(data);
-                    rotatingMarker.addTo(map);
-
-                    rotatingMarker.on('dragend', function(){
-                        alert('Drop it like it\'s hot!');
-
-                    });
-
-                    var popup = new mapboxgl.Popup()
-                    //  .setLngLat([-77.0502, 38.8920])
-                        .setText(element.name);
-                    rotatingMarker.setPopup(popup);
-                    map.setCenter(data);
-                    map.setZoom(15);
-                })
-            }, 2000);
-        });
 
 
 
