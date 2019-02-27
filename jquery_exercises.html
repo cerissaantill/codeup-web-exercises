@@ -5,24 +5,32 @@
         <title>jQuery Exercises</title>
     </head>
     <body>
-        <h1>jQuery Exercises</h1>
+        <h2>jQuery Exercises</h2>
+
+        <br>
 
         <div id="container" class="important">
 
-        <p id="first-paragraph" class="codeup">It's a very cold picture, I may have to go get my coat. It’s about to
+        <div id="div-list" class="not-important"><em>Life Lessons:</em></div>
+
+        <p id="first-paragraph" class="codeup">
+            It's a very cold picture, I may have to go get my coat. It’s about to
             freeze me to death. Play with the angles. We don't really know where
             this goes - and I'm not sure we really care.</p>
 
-        <div id="div-list" class="not-important">Life Lessons:</div>
-
-            <ul>
+            <ul id="list-1" class="list">
                 <li id="ul-item-1" class="codeup">You need the dark in order to show the light.</li>
                 <li id="ul-item-2" class="codeup">Let's have a nice tree right here.</li>
                 <li id="ul-item-3" class="codeup">That's a crooked tree. We'll send him to Washington.</li>
                 <li id="ul-item-4" class="codeup">Talk to trees, look at the birds. Whatever it takes.</li>
             </ul>
 
-            <ol>
+            <p id="second-paragraph" class="codeup">
+                When you do it your way you can go anywhere you choose. We'll have a super time. We'll put all the little
+                clouds in and let them dance around and have fun. I thought today we would do a happy little picture.
+            </p>
+
+            <ol id="list-2" class="list">
                 <li id="ol-item-1" class="codeup">You have to make those little noises or it won't work.</li>
                 <li id="ol-item-2" class="codeup">We don't want to set these clouds on fire.</li>
                 <li id="ol-item-3" class="codeup">Let's have a little bit of fun today.</li>
@@ -31,21 +39,31 @@
         </div>
 
 
-
         <script src="http://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
 
+
         <script>
+            // custom jQuery
+
             "use strict";
 
-            $(document).ready(function(){
-                // alert('the DOM has finished loading');
-            })
+            $('li').css('font-size', '20px'); // changes <li> font-size to 20px
+            $('#div-list').css('font-size', '25px'); // changes font-size to 25px
 
-            // var$('#first-paragraph');
+            alert($('h2').html()); // alerts the <h2>
 
+            $('p').css('background', 'yellow'); // adds yellow bg to <p>
 
+            // $('.codeup').css('border', '1px solid red'); // adds red borders
+
+            // var contents = $('h2').html();
+            //  alert(contents);
+
+            // $(document).ready(function(){
+            //     alert('this is an alert in jquery');
+            // })
 
 
 
