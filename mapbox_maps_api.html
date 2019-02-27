@@ -8,96 +8,116 @@
 
         <!-- Mapbox CSS -->
         <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet'>
-
+        <!-- Mapbox Geocoder Util Methods -->
+        <script src="js/geocoding.js"></script>
     </head>
     <body>
 
-    <!-- The HTML element that serves as the Mapbox container -->
     <div id='map' style='width: 100%; height: 400px;'></div>
-
     <!-- Mapbox JS -->
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 
-    <!-- Mapbox Geocoder Util Methods -->
-    <script src="mapbox-geocoder-utils.js"></script>
-    <!-- external js file for access token -->
     <script src="js/keys.js"></script>
 
 
     <script>
 
-        // var token = mapboxToken; // pulled in from keys.js
-        var searchPlace = 'San Antonio';
-
-        mapboxgl.accessToken = token;
-
-        geocode(searchPlace, token).then(function(results){
+        mapboxgl.accessToken = mapKey;
 
             var map = new mapboxgl.Map({
                 container: 'map',
-                style: 'mapbox://styles/mapbox/streets-v9',
-                zoom: 10,
-                center: [-98.4896, 29.4266]
+                style: 'mapbox://styles/mapbox/satellite-streets-v9',
+                zoom: 9,
+                center: [-98.4836, 29.4241]
+
             });
 
+            var delay = 3000;
+
+            var timeoutId2 = setTimeout(function(){
+
+                geocode('Silo Terrace, San Antonio, TX', mapKey).then(function(data){
+
+                    var siloMarker = new mapboxgl.Marker();
+                    siloMarker.setLngLat(data);
+                    siloMarker.addTo(map);
+
+                    siloMarker.on("dragend", function(){
+                        alert('You\'re getting verrry hungry');
+
+                    });
+
+                    var popup = newmapboxgl.Popup()
+                    .setLngLat([-98.570450, 29.476470])
+                        .setText('Silo Terrace');
+
+                    siloMarker.setPopup(popup);
+
+                    map.setCenter(data);
+                    map.setZoom(10);
+                });
+            }, delay);
 
 
 
+        var foodPlaces = [
+            {name: 'Silo', location: 'Silo: Elevated Cuisine, San Antonio, TX'},
+            {name: 'Bliss', location: 'Bliss Restaurant, San Antonio, TX'},
+            {name: 'Liberty Bar', location: 'Liberty Bar, San Antonio, TX'}
+        ];
 
+        foodPlaces.forEach(function(element, i, array){
+
+            setTimeout(function(){
+
+                geocode(element, location, mapKey).then(function(data){
+
+                    var rotatingMarker = new mapboxgl.Marker();
+                    rotatingMarker.setLngLat(data);
+                    rotatingMarker.addTo(map);
+
+                    rotatingMarker.on('dragend', function(){
+                        alert('Drop it like it\'s hot!)
+
+                    });
+
+                    var popup = new mapboxgl.Popup()
+                    //  .setLngLat([-77.0502, 38.8920])
+                        .setText(element.name);
+                    rotatingMarker.setPopup(popup);
+                    map.setCenter(data);
+                    map.setZoom(15);
+                })
+            }, 2000);
         });
 
 
 
+  // 8
+        function placeMarkerAndPopup(eatObj, token, map) {
+            return geocode(info.address, token).then(function(coordinates){
+                var popup = new mapboxgl.Popup()
+                    .setHTML('<h3>' + eatObj.name + '</h3><p>' + eatObj.message + '</p>');
 
+                return marker = new mapboxgl.Marker()
+                    .setLngLat(coordinates)
+                    .addTo(map)
+                    .setPopup(popup);
+            });
+        }
 
-
-
-
-
-    // //8.
-    //     var eats = [
-    //         {
-    //             name: 'Silo',
-    //             address: 'Silo: Elevated Cuisine, San Antonio, TX',
-    //             message: 'It\'s great!'
-    //         },
-    //         {
-    //             name: 'Bliss',
-    //             address: 'Bliss Restaurant, San Antonio, TX',
-    //             message: 'Awesome!'
-    //
-    //         },
-    //         {
-    //             name: 'Liberty Bar',
-    //             address: 'Liberty Bar, San Antonio, TX',
-    //             message: 'fun neighborhood restaurant!'
-    //         }
-    //     ];
-    //
-    //     function placeMarkerAndPopup(eatObj, token, map) {
-    //         return geocode(info.address, token).then(function(coordinates){
-    //             var popup = new mapboxgl.Popup()
-    //                 .setHTML('<h3>' + eatObj.name + '</h3><p>' + eatObj.message + '</p>');
-    //
-    //             return marker = new mapboxgl.Marker()
-    //                 .setLngLat(coordinates)
-    //                 .addTo(map)
-    //                 .setPopup(popup);
-    //         });
-    //     }
-    //
-    //     for (var i=0; i < eats.length; i +=1) {
-    //         placeMarkerAndPopup(eats[i], mapboxglAccessToken, map);
-    //     }
+        for (var i=0; i < foodPlaces.length; i +=1) {
+            placeMarkerAndPopup(foodPlaces[i], mapKey, map);
+        };
 
 
 
         // eats.forEach(function(restaurant) {
-        //     placeMarkerAndPopup(restaurant, mapboxglAccessTokenToken, map);
+        //     placeMarkerAndPopup(restaurant, mapKey, map);
         // });
+        //
 
-
-
+        //
         // });
 
 

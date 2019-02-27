@@ -21,19 +21,19 @@
     <!-- Mapbox JS -->
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
-    <script src="mapbox-geocoder-utils.js"></script>
+    <script src="js/geocoding.js"></script>
     <script src="js/keys.js"></script>
 
 
 
     <script>
 
-        mapboxgl.accessToken = mapboxToken;
+        mapboxgl.accessToken = mapKey;
 
         var map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/satellite-streets-v9',
-            zoom: 16,
+            zoom: 9,
             center: [-98.4896, 29.4266]
         });
 
@@ -42,7 +42,7 @@
         var timeoutId1 = setTimeout(function(){
             console.log('Shifting Map to Zion');
 
-            geocode('Zion National Park, Utah', mapboxToken).then(function(data){
+            geocode('Zion National Park, Utah', mapKey).then(function(data){
                 map.setCenter(data);
             });
         }, delayer);
