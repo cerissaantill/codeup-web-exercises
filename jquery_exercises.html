@@ -2,23 +2,31 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>jQuery Exercise</title>
+        <title>jQuery Exercises</title>
     </head>
     <body>
-        <h1>jQuery Exercise</h1>
+        <h1>jQuery Exercises</h1>
 
-        <p>It's a very cold picture, I may have to go get my coat. It’s about to
+        <p id="first-paragraph" class="codeup">It's a very cold picture, I may have to go get my coat. It’s about to
             freeze me to death. Play with the angles. We don't really know where
             this goes - and I'm not sure we really care.</p>
 
+        <div id="div-list" class="codeup">Life Lessons:</div>
+
             <ul>
-                <li>You need the dark in order to show the light.</li>
-                <li>Let's have a nice tree right here.</li>
-                <li>That's a crooked tree. We'll send him to Washington.</li>
-                <li>Talk to trees, look at the birds. Whatever it takes.</li>
+                <li id="ul-item-1" class="codeup">You need the dark in order to show the light.</li>
+                <li id="ul-item-2" class="codeup">Let's have a nice tree right here.</li>
+                <li id="ul-item-3" class="codeup">That's a crooked tree. We'll send him to Washington.</li>
+                <li id="ul-item-4" class="codeup">Talk to trees, look at the birds. Whatever it takes.</li>
             </ul>
 
-        <div id="div-bottom" class="codeup">This is in a div.</div>
+            <ol>
+                <li id="ol-item-1" class="codeup">You have to make those little noises or it won't work.</li>
+                <li id="ol-item-2" class="codeup">We don't want to set these clouds on fire.</li>
+                <li id="ol-item-3" class="codeup">Let's have a little bit of fun today.</li>
+            </ol>
+
+
 
 
 
@@ -35,7 +43,7 @@
             "use strict";
 
             $(document).ready(function(){
-                alert('the DOM has finished loading');
+                // alert('the DOM has finished loading');
             })
         </script>
     </body>
