@@ -9,30 +9,19 @@
 
 // my notes : target the number types and return them in ascending order
 
-    var mixedDataTypes = [
-        {
-            movieName: "Thoroughly Modern Millie",
-            movieRanking: 95,
-            hasWatched: true
-        },
-        {
-            movieName: "Bridesmaids",
-            movieRanking: 89,
-            hasWatched: true
-        },
-        {
-            movieName: "Moana",
-            movieRanking: 100,
-            hasWatched: true
-        }
-    ];
+    var array = ["Fred",21, true, 18, 16, 50, 99, 3, false, "Zion" ];
 
 
-    function filterNumbers(input) {
-        var output = [];
-        console.log(mixedDataTypes.sort());
+    function filterNumbers(array) {
+        var arr = [];
+        array.forEach (function (input) {
+            if (typeof input === "number") {
+                arr.unshift(input);
+            }
+        });
+        return arr;
     }
-
+    console.log(filterNumbers(array));
 
 
 

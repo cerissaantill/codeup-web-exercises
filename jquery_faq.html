@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>National Parks FAQ</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat|Pacifico" rel="stylesheet">
+
+    </head>
+    <body>
+
+    <div id="background"></div>
+    <div id="info-text">
+
+        <div class="alert alert-dismissible alert-info" role="alert">
+            <span class="x-hide pointer">x</span>
+            <div id="newsletter" class="thumbnail alert alert-dismissible">
+                <h1>Would you like to sign up for our newsletter?</h1>
+                <p><a href="#" class="btn btn-primary" role="button">Sign me up!</a></p>
+            </div>
+        </div>
+
+        <!--Modal here:-->
+        <div id="register">
+            <div id="myModal" class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Register</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Register to access the full website.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Register</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <h1>National Parks FAQ:</h1>
+    <dl>
+        <dt>What government agency oversees the National Park Service?</dt>
+        <dd class="invisible">The Department of the Interior.</dd>
+        <dt>What was the first National Park?</dt>
+        <dd class="invisible">Yellowstone was the first national park in the world in 1872.</dd>
+        <dt>Which state has the most national parks?</dt>
+        <dd class="invisible">California has the most national parks (9 total).</dd>
+        <dt>How much land do the national parks cover?</dt>
+        <dd class="invisible">There are 51 million acres of land in all of the national parks combined. </dd>
+        <dt>What is the smallest national park?</dt>
+        <dd class="invisible">The smallest national park is Hot Springs National Park at 5,500 acres.</dd>
+        <dt>What is the largest national park?</dt>
+        <dd class="invisible">The largest national park is Wrangell - St. Elias National Park in Alaska at over 8.3 million acres. </dd>
+        <dt>Does every state have a national park or national monument?</dt>
+        <dd class="invisible"> Delaware is the only state that doesn't have a national park or a national monument.</dd>
+        <dt>Which national park has the lowest elevation?</dt>
+        <dd class="invisible">Death Valley National Park is actually 282 feet below sea level and is the lowest elevation in the US.</dd>
+        <dt>How old is the Grand Canyon?</dt>
+        <dd class="invisible">The rock of the Grand Canyon is over 1.75 billion years old. </dd>
+        <dt>What is the point of all of these national parks?</dt>
+        <dd class="invisible">The purpose of preserving the national parks is, "to conserve the scenery and the natural and historic objects and wildlife therein, and to provide for the enjoyment of the same in such manner and by such means as will leave them unimpaired for the enjoyment of future generations."</dd>
+    </dl>
+    <hr>
+
+
+    <h2>Click to Explore:</h2>
+    <h3 class="header">Arches National Park</h3>
+    <ul class="park-facts hidden" id="arches">
+        <li>76,519 acres (119 square miles) of land</li>
+        <li>Established in 1971.</li>
+        <li>There are more than sandstone 2000 arches.</li>
+        <li><a href="https://www.nps.gov/arch/learn/photosmultimedia/webcams.htm "target=_blank">Click to see the current conditions</a></li>
+    </ul>
+
+
+    <h3 class="header">Glacier National Park</h3>
+    <ul class="park-facts hidden" id="glacier">
+        <li>The world's first international peace park.</li>
+        <li>Straddles the Continental Divide which allows for extreme weather.</li>
+        <li>The largest glacier in the park is .7 square miles.</li>
+        <li><a href="https://www.nps.gov/glac/learn/photosmultimedia/webcams.htm "target=_blank">Click to see the current conditions</a></li>
+    </ul>
+
+
+        <h3 class="header">Sequoia National Park</h3>
+        <ul class="park-facts hidden" id="sequoia">
+            <li>Home to five of the 10 largest trees on Earth.</li>
+            <li>Low-intensity prescribed burns helps promotes the growth of new trees.</li>
+            <li>These trees can live for over 3,000 years!</li>
+            <li><a href="https://www.nps.gov/seki/planyourvisit/conditions.htm "target=_blank">Click to see the current conditions</a></li>
+        </ul>
+
+
+        <button id="highlighter" class="btn btn-primary">Highlight</button>
+
+    </div>
+
+
+    <!--divs for the bonus question:-->
+    <div class="pictures" id="arches-pic"></div>
+    <div class="pictures" id="glacier-pic"></div>
+    <div class="pictures" id="sequoia-pic"></div>
+
+
+
+    <!--JAVASCRIPT HERE-->
+    <script src="js/jquery.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("dt").click(function() {
+                $(this).next("dd").slideToggle(300).toggleClass('invisible');
+            });
+            // Shorter way to do highlighter:
+            $("#highlighter").click(function (){
+                $("ul").each(function (){
+                    $(this).children().last().css("background-color", "yellow");
+                })
+            });
+            //the longer way to do highlighter, use the more efficient way above- left this just for reference:
+            // $("#highlighter").click(function(){
+            //     $("#arches").children().last().css("background-color", "yellow");
+            //     $("#sequoia").children().last().css("background-color", "yellow");
+            //     $("#glacier").children().last().css("background-color", "yellow");
+            // })
+            $(".header").click(function(){
+                $(this).next(".park-facts").slideToggle(300).css('font-weight', 'bold');
+            });
+            $("ul").click(function(){
+                $(this).children().first().css("color", "blue");
+            });
+
+            $(".x-hide").click(function(){
+                $(this).parent().hide("#newsletter");
+            });
+            $("#register").delay(500).fadeIn(1000);
+            setTimeout(function(){
+                $('#myModal').modal({backdrop:false});
+            }, 8000);
+
+        });
+    </script>
+
+
+
+    <!--CSS HERE-->
+    <style>
+        #background {
+            background-image: url(img/national-park.jpeg);
+            opacity: .3;
+            width: 100%;
+            height: 300%;
+            z-index: 0;
+            position: absolute;
+        }
+        .pointer {
+            cursor: pointer;
+        }
+        #info-text{
+            z-index: 1000;
+            position: absolute;
+        }
+        dt {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 1em;
+            padding: .5em;
+        }
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        dd , li{
+            font-family: 'Montserrat', sans-serif;
+            font-style: italic;
+        }
+        .invisible {
+            display: none;
+        }
+        .hidden {
+            display: none;
+        }
+        link {
+            color: lightseagreen;
+        }
+        .header {
+            font-size: 40px;
+            color: midnightblue;
+            padding-top: .5em;
+        }
+    </style>
+
+
+
+    <!--Bootstrap code for javascript-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
