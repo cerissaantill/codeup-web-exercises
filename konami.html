@@ -2,21 +2,61 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Konami Code</title>
+        <title>Konami Code Exercise</title>
     </head>
     <body>
-    <h1>Konami Code</h1>
+        <h1>Konami Code</h1>
 
-    <script src="/js/jquery.js"></script>
-    <script>
-        "use strict";
+        <div id="container">
+        <p class="code">
+            <span>&uarr;</span>
+            <span>&uarr;</span>
+            <span>&darr;</span>
+            <span>&darr;</span>
+            <span>&larr;</span>
+            <span>&rarr;</span>
+            <span>&larr;</span>
+            <span>&rarr;</span>
+            <span>B</span>
+            <span>A</span>
+        </p>
+        </div> <!-- /#container -->
 
-        $(document).keyup(function(event){
-            console.log(event.keyCode);
-        });
-    </script>
+        <script src="http://code.jquery.com/jquery-3.3.1.js"
+                integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+                crossorigin="anonymous"></script>
+
+
+        <script>
+            "use strict";
+
+            // up up down down, L,R,L,R, B,A enter
+
+            // Marcus code
+            var konamiCode = "";
+
+            $(document).keyup(function(event){
+                console.log(event.keyCode);
+                konamiCode += (event.keyCode);
+                setTimeout(function(){
+
+                }, 3000);
+
+                if (konamiCode === '38384040373937396665') {
+                    alert("You have added 30 lives!!!");
+
+                    // setTimeout(function(){
+                    //     $('body').css('background-image','img/contra.jpg')
+                    // })
+
+                }
 
 
 
+
+            });
+
+
+        </script>
     </body>
 </html>
