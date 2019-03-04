@@ -11,6 +11,35 @@
 
 
 
+// Pseudo Code: prompt user for input, store in a variable, use dom format to create list item,
+//          have an empty array stored outside the function,
+
+
+// var groceryList = [];
+//
+// function addGroceryList() {
+//
+//     // var x = prompt('How many grocery items do you need?');
+//
+//     var z = "";
+//
+//     for (var i = 0; i < x; i++) {
+//
+//         // var userInput = prompt('Add an item to your grocery list:');
+//
+//         var table = document.getElementById('groceryList');
+//
+//         z += "<li>" + userInput + "</li>";
+//
+//         table.innerHTML = z;
+//
+//         groceryList.push(userInput);
+//
+//     }
+// }
+//
+// addGroceryList();
+
 
 // BONUS 2 (custom styling)
 
@@ -19,6 +48,22 @@
 // Add additional style changes to have fun and experiment!
 
 
+    function style(){
+
+        var background = prompt('Choose a background color: ');
+
+        document.body.style.background = background;
+
+        var font = prompt('Choose a font style: Arial, Helvetica, Optima');
+
+        document.body.style.fontFamily = font;
+
+        var fontColor = prompt('Select a font color: ')
+
+        document.body.style.color = fontColor;
+    }
+
+    style();
 
 
 
@@ -72,6 +117,9 @@
 // - display the word as it is being completed and the letters not already guessed with underscores
 // - a form should allow the user to type a letter guess
 // - do not accept inputs that are more than one letter or are not letters (ignore case)
+
+
+
 
 
 
