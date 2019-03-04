@@ -12,13 +12,13 @@
     <div id="background"></div>
     <div id="info-text">
 
-        <div class="alert alert-dismissible alert-info" role="alert">
-            <span class="x-hide pointer">x</span>
-            <div id="newsletter" class="thumbnail alert alert-dismissible">
-                <h1>Would you like to sign up for our newsletter?</h1>
-                <p><a href="#" class="btn btn-primary" role="button">Sign me up!</a></p>
-            </div>
-        </div>
+        <!--<div class="alert alert-dismissible alert-info" role="alert">-->
+            <!--<span class="x-hide pointer">x</span>-->
+            <!--<div id="newsletter" class="thumbnail alert alert-dismissible">-->
+                <!--<h1>Would you like to sign up for our newsletter?</h1>-->
+                <!--<p><a href="#" class="btn btn-primary" role="button">Sign me up!</a></p>-->
+            <!--</div>-->
+        <!--</div>-->
 
         <!--Modal here:-->
         <div id="register">
@@ -47,30 +47,31 @@
     <h1>National Parks FAQ:</h1>
     <dl>
         <dt>What government agency oversees the National Park Service?</dt>
-        <dd class="invisible">The Department of the Interior.</dd>
+        <dd class="visible">The Department of the Interior.</dd>
         <dt>What was the first National Park?</dt>
-        <dd class="invisible">Yellowstone was the first national park in the world in 1872.</dd>
+        <dd class="visible">Yellowstone was the first national park in the world in 1872.</dd>
         <dt>Which state has the most national parks?</dt>
-        <dd class="invisible">California has the most national parks (9 total).</dd>
+        <dd class="visible">California has the most national parks (9 total).</dd>
         <dt>How much land do the national parks cover?</dt>
-        <dd class="invisible">There are 51 million acres of land in all of the national parks combined. </dd>
+        <dd class="visible">There are 51 million acres of land in all of the national parks combined. </dd>
         <dt>What is the smallest national park?</dt>
-        <dd class="invisible">The smallest national park is Hot Springs National Park at 5,500 acres.</dd>
+        <dd class="visible">The smallest national park is Hot Springs National Park at 5,500 acres.</dd>
         <dt>What is the largest national park?</dt>
-        <dd class="invisible">The largest national park is Wrangell - St. Elias National Park in Alaska at over 8.3 million acres. </dd>
+        <dd class="visible">The largest national park is Wrangell - St. Elias National Park in Alaska at over 8.3 million acres. </dd>
         <dt>Does every state have a national park or national monument?</dt>
-        <dd class="invisible"> Delaware is the only state that doesn't have a national park or a national monument.</dd>
+        <dd class="visible"> Delaware is the only state that doesn't have a national park or a national monument.</dd>
         <dt>Which national park has the lowest elevation?</dt>
-        <dd class="invisible">Death Valley National Park is actually 282 feet below sea level and is the lowest elevation in the US.</dd>
+        <dd class="visible">Death Valley National Park is actually 282 feet below sea level and is the lowest elevation in the US.</dd>
         <dt>How old is the Grand Canyon?</dt>
-        <dd class="invisible">The rock of the Grand Canyon is over 1.75 billion years old. </dd>
+        <dd class="visible">The rock of the Grand Canyon is over 1.75 billion years old. </dd>
         <dt>What is the point of all of these national parks?</dt>
-        <dd class="invisible">The purpose of preserving the national parks is, "to conserve the scenery and the natural and historic objects and wildlife therein, and to provide for the enjoyment of the same in such manner and by such means as will leave them unimpaired for the enjoyment of future generations."</dd>
+        <dd class="visible">The purpose of preserving the national parks is, "to conserve the scenery and the natural and historic objects and wildlife therein, and to provide for the enjoyment of the same in such manner and by such means as will leave them unimpaired for the enjoyment of future generations."</dd>
     </dl>
     <hr>
 
 
     <h2>Click to Explore:</h2>
+
     <h3 class="header">Arches National Park</h3>
     <ul class="park-facts hidden" id="arches">
         <li>76,519 acres (119 square miles) of land</li>
@@ -89,66 +90,88 @@
     </ul>
 
 
-        <h3 class="header">Sequoia National Park</h3>
-        <ul class="park-facts hidden" id="sequoia">
-            <li>Home to five of the 10 largest trees on Earth.</li>
-            <li>Low-intensity prescribed burns helps promotes the growth of new trees.</li>
-            <li>These trees can live for over 3,000 years!</li>
-            <li><a href="https://www.nps.gov/seki/planyourvisit/conditions.htm "target=_blank">Click to see the current conditions</a></li>
-        </ul>
+    <h3 class="header">Sequoia National Park</h3>
+    <ul class="park-facts hidden" id="sequoia">
+        <li>Home to five of the 10 largest trees on Earth.</li>
+        <li>Low-intensity prescribed burns helps promotes the growth of new trees.</li>
+        <li>These trees can live for over 3,000 years!</li>
+        <li><a href="https://www.nps.gov/seki/planyourvisit/conditions.htm "target=_blank">Click to see the current conditions</a></li>
+    </ul>
 
 
         <button id="highlighter" class="btn btn-primary">Highlight</button>
 
-    </div>
+    </div>  <!-- /info-text ->
 
 
-    <!--divs for the bonus question:-->
-    <div class="pictures" id="arches-pic"></div>
-    <div class="pictures" id="glacier-pic"></div>
-    <div class="pictures" id="sequoia-pic"></div>
+    <!- divs for the bonus question:-->
+    <!--<div class="pictures" id="arches-pic"></div>-->
+    <!--<div class="pictures" id="glacier-pic"></div>-->
+    <!--<div class="pictures" id="sequoia-pic"></div>-->
 
 
 
     <!--JAVASCRIPT HERE-->
-    <script src="js/jquery.js"></script>
+    <script
+            src="http://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous">
+    </script>
+
+
     <script>
+
+        "use strict";
+
+        // ======== jQuery Traversal Exercise ===================
+
         $(document).ready(function() {
-            $("dt").click(function() {
-                $(this).next("dd").slideToggle(300).toggleClass('invisible');
+            $('dt').click(function() {
+                $(this).next('dd').slideToggle(300).toggleClass('invisible');
             });
 
-            // Shorter way to do highlighter:
-            $("#highlighter").click(function (){
-                $("ul").each(function (){
-                    $(this).children().last().css("background-color", "yellow");
-                })
-            });
-            //the longer way to do highlighter, use the more efficient way above- left this just for reference:
-            // $("#highlighter").click(function(){
-            //     $("#arches").children().last().css("background-color", "yellow");
-            //     $("#sequoia").children().last().css("background-color", "yellow");
-            //     $("#glacier").children().last().css("background-color", "yellow");
-            // })
-
-            $(".header").click(function(){
-                $(this).next(".park-facts").slideToggle(300).css('font-weight', 'bold');
+            // highlight last li of each ul element
+            $('#highlighter').click(function(){
+            $('ul').each(function (){
+                    $(this).children().last().css('background-color', 'yellow');
+                });
             });
 
-            $("ul").click(function(){
-                $(this).children().first().css("color", "blue");
+            // Make h3 font bold on click
+            $('h3').click(function(){
+                console.log($(this).next().children().css('font-weight', 'bold'));
             });
 
-            $(".x-hide").click(function(){
-                $(this).parent().hide("#newsletter");
+            // Make the first li turn blue when clicking an li
+            $('li').click(function(){
+                console.log($(this).parent().children().first().css('color', 'blue'));
             });
 
-            $("#register").delay(500).fadeIn(1000);
-            setTimeout(function(){
-                $('#myModal').modal({backdrop:false});
-            }, 8000);
 
-        });
+
+
+
+
+            // $('.header').click(function(){
+            //     $(this).next(".park-facts").slideToggle(300).css('font-weight', 'bold');
+            // });
+
+
+            // turn UL blue when clicked
+            // $('ul').click(function(){
+            //     $(this).children().first().css('color', 'blue');
+            // });
+
+            // $('.x-hide').click(function(){
+            //     $(this).parent().hide('#newsletter');
+            // });
+
+            // $('#register').delay(500).fadeIn(1000);
+            // setTimeout(function(){
+            //     $('#myModal').modal({backdrop:false});
+            // }, 8000);
+
+        // }
     </script>
 
 
@@ -163,9 +186,9 @@
             z-index: 0;
             position: absolute;
         }
-        .pointer {
-            cursor: pointer;
-        }
+        /*.pointer {*/
+            /*cursor: pointer;*/
+        /*}*/
         #info-text{
             z-index: 1000;
             position: absolute;
@@ -177,17 +200,17 @@
             margin-top: 1em;
             padding: .5em;
         }
-        h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: bold;
-            font-size: 18px;
-        }
+        /*h3 {*/
+            /*font-family: 'Montserrat', sans-serif;*/
+            /*font-weight: bold;*/
+            /*font-size: 18px;*/
+        /*}*/
 
         dd , li{
             font-family: 'Montserrat', sans-serif;
             font-style: italic;
         }
-        .invisible {
+        .visible {
             display: none;
         }
         .hidden {
@@ -205,7 +228,8 @@
 
 
 
-    <!--Bootstrap code for javascript-->
+
+    <!--Bootstrap for javascript-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
