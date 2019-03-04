@@ -9,34 +9,34 @@
     </head>
     <body>
 
-    <div id="background"></div>
-    <div id="info-text">
+    <div id='background'></div>
+    <div id='info-text'>
 
-        <!--<div class="alert alert-dismissible alert-info" role="alert">-->
-            <!--<span class="x-hide pointer">x</span>-->
-            <!--<div id="newsletter" class="thumbnail alert alert-dismissible">-->
-                <!--<h1>Would you like to sign up for our newsletter?</h1>-->
-                <!--<p><a href="#" class="btn btn-primary" role="button">Sign me up!</a></p>-->
-            <!--</div>-->
-        <!--</div>-->
+        <div class='alert alert-dismissible alert-info' role='alert'>
+            <span class='x-hide pointer'>x</span>
+            <div id='newsletter' class='thumbnail alert alert-dismissible'>
+                <h1 class='newsletter'>Would you like to sign up for our newsletter?</h1>
+                <p><a href='#' class='btn btn-primary' role='button'>Sign me up!</a></p>
+            </div>
+        </div>
 
         <!--Modal here:-->
-        <div id="register">
-            <div id="myModal" class="modal" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
+        <div id='register'>
+            <div id='myModal' class='modal' tabindex='-1' role='dialog'>
+            <div class='modal-dialog' role='document'>
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Register</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
+                        <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class='modal-body'>
                         <p>Register to access the full website.</p>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Register</button>
+                    <div class='modal-footer'>
+                        <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
+                        <button type='button' class='btn btn-primary'>Register</button>
                     </div>
                 </div>
             </div>
@@ -72,42 +72,42 @@
 
     <h2>Click to Explore:</h2>
 
-    <h3 class="header">Arches National Park</h3>
-    <ul class="park-facts hidden" id="arches">
+    <h3 class='header'>Arches National Park</h3>
+    <ul class='park-facts hidden' id='arches'>
         <li>76,519 acres (119 square miles) of land</li>
         <li>Established in 1971.</li>
         <li>There are more than 2,000 sandstone arches.</li>
-        <li><a href="https://www.nps.gov/arch/learn/photosmultimedia/webcams.htm "target=_blank">Click to see the current conditions</a></li>
+        <li><a href='https://www.nps.gov/arch/learn/photosmultimedia/webcams.html' target='_blank'>Click to see the current conditions</a></li>
     </ul>
 
 
-    <h3 class="header">Glacier National Park</h3>
-    <ul class="park-facts hidden" id="glacier">
+    <h3 class='header'>Glacier National Park</h3>
+    <ul class='park-facts hidden' id='glacier'>
         <li>The world's first international peace park.</li>
         <li>Straddles the Continental Divide which allows for extreme weather.</li>
         <li>The largest glacier in the park is .7 square miles.</li>
-        <li><a href="https://www.nps.gov/glac/learn/photosmultimedia/webcams.htm "target=_blank">Click to see the current conditions</a></li>
+        <li><a href='https://www.nps.gov/glac/learn/photosmultimedia/webcams.html' target='_blank'>Click to see the current conditions</a></li>
     </ul>
 
 
-    <h3 class="header">Sequoia National Park</h3>
-    <ul class="park-facts hidden" id="sequoia">
+    <h3 class='header'>Sequoia National Park</h3>
+    <ul class='park-facts hidden' id='sequoia'>
         <li>Home to five of the 10 largest trees on Earth.</li>
         <li>Low-intensity prescribed burns helps promotes the growth of new trees.</li>
         <li>These trees can live for over 3,000 years!</li>
-        <li><a href="https://www.nps.gov/seki/planyourvisit/conditions.htm "target=_blank">Click to see the current conditions</a></li>
+        <li><a href='https://www.nps.gov/seki/planyourvisit/conditions.html' target='_blank'>Click to see the current conditions</a></li>
     </ul>
 
 
-        <button id="highlighter" class="btn btn-primary">Highlight</button>
+        <button id='highlighter' class='btn btn-primary'>Highlight</button>
 
     </div>  <!-- /info-text ->
 
 
     <!- divs for the bonus question:-->
-    <!--<div class="pictures" id="arches-pic"></div>-->
-    <!--<div class="pictures" id="glacier-pic"></div>-->
-    <!--<div class="pictures" id="sequoia-pic"></div>-->
+    <!--<div class='pictures' id='arches-pic'></div>-->
+    <!--<div class='pictures' id='glacier-pic'></div>-->
+    <!--<div class='pictures' id='sequoia-pic'></div>-->
 
 
 
@@ -120,58 +120,63 @@
 
 
     <script>
-
         "use strict";
 
         // ======== jQuery Traversal Exercise ===================
 
+        // Toggle all dd's in the <dl> container
         $(document).ready(function() {
-            $('dt').click(function() {
-                $(this).next('dd').slideToggle(300).toggleClass('invisible');
+            $('dt').click(function () {
+                $(this).next('dd').slideToggle(300).toggleClass('visible');
             });
 
-            // highlight last li of each ul element
-            $('#highlighter').click(function(){
-            $('ul').each(function (){
+            // use button to highlight last li of each ul element
+            $('#highlighter').click(function () {
+                $('ul').each(function () {
                     $(this).children().last().css('background-color', 'yellow');
                 });
             });
 
             // Make h3 font bold on click
-            $('h3').click(function(){
+            $('h3').click(function () {
                 console.log($(this).next().children().css('font-weight', 'bold'));
             });
 
             // Make the first li turn blue when clicking an li
-            $('li').click(function(){
+            $('li').click(function () {
                 console.log($(this).parent().children().first().css('color', 'blue'));
+            });
+        });
+
+
+
+        // ========== jQuery Effects Exercise ====================
+
+            // Toggle the h3 elements
+            $('.header').click(function(){
+                $(this).next(".park-facts").slideToggle(300).css('font-weight', 'bold');
             });
 
 
+            // turn first li of each parent ul blue, when clicked
+            $('ul').click(function(){
+                $(this).children().first().css('color', 'blue');
+            });
 
 
+            // Close out newsletter header when 'x' is clicked
+            $('.x-hide').click(function(){
+                $(this).parent().hide('#newsletter');
+            });
 
 
-            // $('.header').click(function(){
-            //     $(this).next(".park-facts").slideToggle(300).css('font-weight', 'bold');
-            // });
+            // Fade in Register popup after 8 seconds
+            $('#register').delay(500).fadeIn(1000);
+            setTimeout(function(){
+                $('#myModal').modal({backdrop:false});
+            }, 8000);
 
 
-            // turn UL blue when clicked
-            // $('ul').click(function(){
-            //     $(this).children().first().css('color', 'blue');
-            // });
-
-            // $('.x-hide').click(function(){
-            //     $(this).parent().hide('#newsletter');
-            // });
-
-            // $('#register').delay(500).fadeIn(1000);
-            // setTimeout(function(){
-            //     $('#myModal').modal({backdrop:false});
-            // }, 8000);
-
-        // }
     </script>
 
 
@@ -183,15 +188,14 @@
             opacity: .3;
             width: 100%;
             height: 300%;
-            z-index: 0;
             position: absolute;
         }
-        /*.pointer {*/
-            /*cursor: pointer;*/
-        /*}*/
         #info-text{
-            z-index: 1000;
             position: absolute;
+        }
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
         }
         dt {
             font-family: 'Montserrat', sans-serif;
@@ -200,11 +204,11 @@
             margin-top: 1em;
             padding: .5em;
         }
-        /*h3 {*/
-            /*font-family: 'Montserrat', sans-serif;*/
-            /*font-weight: bold;*/
-            /*font-size: 18px;*/
-        /*}*/
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            font-size: 40px;
+        }
 
         dd , li{
             font-family: 'Montserrat', sans-serif;
@@ -220,9 +224,12 @@
             color: lightseagreen;
         }
         .header {
-            font-size: 40px;
+            font-size: 35px;
             color: midnightblue;
             padding-top: .5em;
+        }
+        .newsletter {
+            font-size: 30px;
         }
     </style>
 
