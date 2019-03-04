@@ -20,9 +20,12 @@
             </div>
         </div>
 
-        <!--Modal here:-->
+
+
+        <!--Modal here: (copied straight from Bootstrap Documentation)-->
+
         <div id='register'>
-            <div id='myModal' class='modal' tabindex='-1' role='dialog'>
+            <div id='myModal' class='modal fade' tabindex='-1' role='dialog'>
             <div class='modal-dialog' role='document'>
                 <div class="modal-content">
                     <div class="modal-header">
@@ -112,6 +115,7 @@
 
 
     <!--JAVASCRIPT HERE-->
+
     <script
             src="http://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -122,25 +126,29 @@
     <script>
         "use strict";
 
+
         // ======== jQuery Traversal Exercise ===================
 
-        // Toggle all dd's in the <dl> container
-        $(document).ready(function() {
+            // Toggle all dd's in the <dl> container
+            $(document).ready(function() {
             $('dt').click(function () {
                 $(this).next('dd').slideToggle(300).toggleClass('visible');
             });
 
-            // use button to highlight last li of each ul element
+
+            // Highlight last li of each ul element when button is clicked
             $('#highlighter').click(function () {
                 $('ul').each(function () {
                     $(this).children().last().css('background-color', 'yellow');
                 });
             });
 
+
             // Make h3 font bold on click
             $('h3').click(function () {
                 console.log($(this).next().children().css('font-weight', 'bold'));
             });
+
 
             // Make the first li turn blue when clicking an li
             $('li').click(function () {
@@ -158,7 +166,7 @@
             });
 
 
-            // turn first li of each parent ul blue, when clicked
+            // Turn first li of each parent ul blue, when clicked
             $('ul').click(function(){
                 $(this).children().first().css('color', 'blue');
             });
@@ -166,12 +174,12 @@
 
             // Close out newsletter header when 'x' is clicked
             $('.x-hide').click(function(){
-                $(this).parent().hide('#newsletter');
+                $(this).parent().hide()('#newsletter');
             });
 
 
-            // Fade in Register popup after 8 seconds
-            $('#register').delay(500).fadeIn(1000);
+            // Fade in register popup after 8 seconds
+            // $('#register').delay(500).fadeIn(1000);
             setTimeout(function(){
                 $('#myModal').modal({backdrop:false});
             }, 8000);
@@ -182,6 +190,7 @@
 
 
     <!--CSS HERE-->
+
     <style>
         #background {
             background-image: url(img/national-park.jpeg);
