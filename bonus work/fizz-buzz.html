@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Fizz Buzz</title>
+    </head>
+    <body>
+    <script>
+
+        // displays that you know how to write a
+        // function, a for loop, and a conditional
+
+        function fizzbuzz(num) {
+
+            for (var i = 1; i < num; i++) {
+
+                if (i % 15 === 0) {
+                    console.log('FizzBuzz');
+
+                } else if (i % 3 === 0) {
+                    console.log('Fizz');
+
+                } else if (i % 5 === 0) {
+                    console.log('Buzz');
+
+                } else {
+                    console.log(i);
+                }
+            }
+        }
+
+        fizzbuzz(50);
+
+    </script>
+
+    </body>
+</html>
