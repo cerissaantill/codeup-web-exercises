@@ -5,6 +5,16 @@
 
     <title>jQuery Practice</title>
     <!--any bootstrap link and css here-->
+    <style>
+        .fontChange {
+            font-family: arial;
+            color: white;
+            background-color: darkslateblue;
+        }
+    </style>
+
+
+
 </head>
 
 <body>
@@ -57,10 +67,15 @@
 
         //Give all h3s a background color of blue when clicked
         $('h3').click(function(){
-            console.log($(this).css('background-color', 'blue');
+            console.log($(this).css('background-color', 'blue'));
+            console.log($(this).css('color', 'white'));
+            console.log($(this).toggleClass('fontChange'));
         });
 
         //Put a border around the third li on the page
+        console.log($('#trees'))
+
+        console.log($('#trees').children().eq(1).text()); //maple
 
 
         //When you click any city, highlight the title of the city list

@@ -129,8 +129,9 @@
 
         // ======== jQuery Traversal Exercise ===================
 
+        $(document).ready(function() {
+
             // Toggle all dd's in the <dl> container
-            $(document).ready(function() {
             $('dt').click(function () {
                 $(this).next('dd').slideToggle(300).toggleClass('visible');
             });
