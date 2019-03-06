@@ -24,7 +24,7 @@
 </table>
 
 
-<button id="refresh" type="submit">Refresh</button>
+<button class="btn btn-info" id="refresh" type="submit">Refresh</button>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -35,33 +35,68 @@
         "use strict";
         // TODO: Create an ajax GET request for /data/inventory.json
 
-            var table = "";
+        // TODO: Take the data from inventory.json and append it to the products table
+        //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+        //             its contents and fields
+        //       HINT: You will want to target #insertProducts for your new HTML elements
 
-           $.ajax('data/inventory.json').done(function (data) {
 
+        var table = "";
 
+           $.get('data/inventory.json').done(function(data) {  //ajax request
+                console.log(data);
+
+            //  for loop to generate html
                 for(var i =0; i < data.length; i++) {
                         table += "<tr>";
                         table += "<td>" + data[i].title + "</td>";
                         table += "<td>" + data[i].quantity + "</td>";
                         table += "<td>" + data[i].price + "</td>";
-                        table += "<td>" + data[i].categories + "</td>";
+                        table += "<td>" + data[i].categories.join(', ') + "</td>";
                         table += "</tr>";
 
 
                     $('#insertProducts').html(table);
+                                    //  .append('hello world');
+                                    // will append hello world to the html
                 }
             });
 
-         $('#refresh').click(function(){
-             table();
-         })
 
 
-        // TODO: Take the data from inventory.json and append it to the products table
-        //       HINT: Your data should come back as a JSON object; use console.log() to inspect
-        //             its contents and fields
-        //       HINT: You will want to target #insertProducts for your new HTML elements
+            // line 72 has an error
+
+         // $('#refresh').click(function(){
+         //    table = $.get('data/inventory.json');
+         //    table.done(function(data) {
+         //        $('#insertProducts').html(insertProducts(items));
+         //     })
+         // });
+
+
+
+        // Another way to write out the ajax request:
+        // var jqXhr = $.get('data/inventory.json');
+
+
+
+        //Solution for part 2 using a forEach:
+// =========================================================
+
+        // items.forEach(function(item){
+        //     item.categories.forEach(function(category){
+        //         console.log(category);
+        //
+        // table += "<tr class = 'table-secondary'>";
+        // table += "<td>" + data.title + "</td>";
+        // table += "<td>" + data.quantity + "</td>";
+        // table += "<td>" + data.price + "</td>";
+        // table += "<td>" + data.categories.join(', ') + "</td>";
+        // table += "</tr>";
+        //     });
+        // });
+
+
 
 
 
