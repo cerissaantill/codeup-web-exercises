@@ -11,8 +11,8 @@
         <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
 
     </head>
-    <body>
 
+    <body>
     <!--nav bar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <a class="navbar-brand" href="#">Ajax Blog</a>
@@ -22,7 +22,7 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#">Home <span class="sr-only"></span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Posts</a>
@@ -42,33 +42,44 @@
 
 
 
+    <script src="http://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
 
 
 
 
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
         function loadBlog() {
+
+
             var blogPost = "";
-            var blogDate = "";
-            var blogCategories = "";
-            $.ajax("data/blog.json").done(function (blogData) {
-                console.log("Everything worked!");
-                console.log(blogData.title);
-                blogData.forEach(function (blogData) {
-                    blogPost += "<h1>" + blogData.title + "</h1>";
-                    blogPost += "<p><em>" + blogData.content + "</em></p>";
-                    blogPost += "<p><strong>Date: </strong>" + blogData.date + "</p>";
-                    blogPost += "<p><strong>Category: </strong>" + blogData.categories + "</p>";
-                });
+
+
+            $.get("data/blog.json").done(function (blogData) {
+
+                console.log(blogData);
+
+                console.log(blogData[0].title);
+
+                for (var i = 0; i < blogData.length; i++) {
+
+                    blogPost += "<h1>" + blogData[i].title + "</h1>";
+
+                    blogPost += "<p>" + blogData[i].content + "</p>";
+
+                    blogPost += "<p>" + "Date: " + blogData[i].date + "</p>";
+
+                    blogPost += "<p>" + "Category: " + blogData[i].categories + "</p>";
+
+                }
+
                 $("#posts").html(blogPost);
-            }).fail(function (jqXhr, status, error) {
-                console.log("There was an error! Check the console for details");
-                console.log("Response status: " + status);
-                console.log("Error object: " + error);
-            });
+
+                });
+
         }
+
         loadBlog();
 
     </script>
@@ -83,6 +94,7 @@
 
     <!--Custom CSS-->
     <style>
+
         .blogTitle {
             color: salmon;
             background-color: papayawhip;
@@ -92,6 +104,7 @@
             padding: .75em;
             margin-bottom: 1em;
         }
+
         h1 {
             color: salmon;
             font-family: 'Playfair Display', serif;
