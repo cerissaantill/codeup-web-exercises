@@ -77,10 +77,6 @@
 </main>
 
 
-
-
-
-
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
 
@@ -107,7 +103,7 @@
     // ========================= .first() =========================
 
     // Highlight the first article
-        // console.log($('article').first().css('background-color', 'lemonchiffon'));
+    //     console.log($('article').first().css('background-color', 'lemonchiffon'));
 
 
 
@@ -139,23 +135,23 @@
     //     console.log($('section').children().first().css('background-color', 'lemonchiffon'));
 
     // Highlight the ordered list of the first article
-    console.log($('article').first().children().last().children().css('background-color', 'lemonchiffon'));
+    // console.log($('article').first().children().last().children().css('background-color', 'lemonchiffon'));
 
 
 
     // ========================= .parent() =========================
 
     // Highlight the entire ordered list when a list item is clicked
-    $('ol').click(function(){
-        console.log()
-    })
+    // $('ol').click(function(){
+    //     console.log()
+    // })
 
 
 
     // ========================= .each() =========================
 
     // Highlight the first nested element inside all article elements
-
+    console.log($('article'))
 
     // Highlight the second list item of all ordered lists
 
@@ -235,9 +231,13 @@
 
     // $('ol').children().css('background-color', 'yellow');
 
+
+
     // Highlight all the sections of the first article
 
     // $('article').first().children().css('background-color', 'yellow');
+
+
 
 
     // Highlight the ordered list of the first article
@@ -264,11 +264,15 @@
     //     $(this).children().first().css('background-color', 'yellow');
     // });
 
+
+
     // Highlight the second list item of all ordered lists
 
     // $('ol').each(function(index, element) {
     //     $(this).children().first().next().css('background-color', 'yellow');
     // });
+
+
 
     // Highlight the third list item of all ordered lists
 
@@ -277,11 +281,13 @@
     // });
 
 
+
+
     // ========================= more complex combinations =========================
 
     // Highlight the first li of the second ordered list
 
-    // $('article').first().next().children().last().children().children().first().css('background-color', 'yellow');
+    $('article').first().next().children().last().children().children().first().css('background-color', 'palevioletred');
 
     // alert each of the top five items when double clicking on the header for a section
 
@@ -293,7 +299,7 @@
     // });
 
     // Give a azure background color to every other list item (first item should be azure)
-
+    //
     // $('ol').each(function(indexI, element) {
     //     $(element).children().each(function(indexJ) {
     //         // console.log(indexJ);
