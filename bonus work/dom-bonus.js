@@ -15,30 +15,35 @@
 //          have an empty array stored outside the function,
 
 
-// var groceryList = [];
-//
-// function addGroceryList() {
-//
-//     // var x = prompt('How many grocery items do you need?');
-//
-//     var z = "";
-//
-//     for (var i = 0; i < x; i++) {
-//
-//         // var userInput = prompt('Add an item to your grocery list:');
-//
-//         var table = document.getElementById('groceryList');
-//
-//         z += "<li>" + userInput + "</li>";
-//
-//         table.innerHTML = z;
-//
-//         groceryList.push(userInput);
-//
-//     }
-// }
-//
-// addGroceryList();
+var groceryList = [];
+
+function addGroceryList() {
+
+    // var x = prompt('How many grocery items do you need?');
+
+    var z = "";
+
+    for (var i = 0; i < x; i++) {
+
+        // var userInput = prompt('Add an item to your grocery list:');
+
+        var table = document.getElementById('groceryList');
+
+        z += "<li>" + userInput + "</li>";
+
+        table.innerHTML = z;
+
+        groceryList.push(userInput);
+
+    }
+}
+
+addGroceryList();
+
+
+
+
+
 
 
 // BONUS 2 (custom styling)
