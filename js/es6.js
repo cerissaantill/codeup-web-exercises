@@ -38,11 +38,11 @@
 // to the languages array
 
 
-// TODO: replace the `var` keyword with `const`, then try to reassign a variable
-// declared as `const`
-    const name = 'your_name_here';
-    const email = '';
-    const languages = [];
+// TODO: replace the `var` keyword with `const`, then try to reassign a variable declared as `const`
+
+    const name = 'cerissa';
+    const email = 'cerissa.antill@gmail.com';
+    const languages = ['html', 'css', 'javascript'];
 
 
 
@@ -60,6 +60,8 @@
         email,
         languages
     });
+
+console.log(users[users.length -1].name);
 
 
 
@@ -82,6 +84,7 @@
     // });
 
     users.forEach(user => emails.push(user.email));
+
     users.forEach(user => names.push(user.email));
 
 
@@ -89,11 +92,9 @@
 
 
 // TODO: replace `var` with `let` in the following declaration
+
     let developers = [];
-    users.forEach(function(user) {
-
-
-
+    users.forEach((user) => {
 
 
 // TODO: rewrite the code below to use object destructuring assignment.
@@ -107,12 +108,11 @@
         const {name, email, languages} = user;
 
 
-
-
-
 // TODO: rewrite the assignment below to use template strings.
-    developers.push(name + '\'s email is ' + email + name + ' knows ' + languages.join(', '));
+        developers.push(`${name}\'s email is ${email} ${name} knows ${languages.join(', ')}`);
     });
+
+    console.log(developers);
 
 
 
@@ -123,27 +123,22 @@
 
 
 
-// TODO: rewrite the following loop to use a for..of loop.
 
+// TODO: rewrite the following loop to use a for..of loop.
     // developers.forEach(function (developer) {
 
-    for(let developer of developers) {
-
-
-
-
-// TODO: rewrite the assignment below to use template strings.
-
+    // TODO: rewrite the assignment below to use template strings.
     // list += '<li>' + developer + '</li>';
     // });
     // list += '</ul>';
 
 
-    list += '<li>${developers}</li>';
+    for(let developer of developers) {
+        list += '<li> ${developers} </li>';
     }
     list += '<ul>';
 
-
+document.getElementById("list").innerHTML = list;
 
 
 
