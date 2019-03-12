@@ -21,6 +21,7 @@
         console.log(newNumbers);
 
 
+
 //  filter out all odd numbers (in vanilla js)
         const oddNumbers = numbers.filter(function(n) {
             return n % 2 !== 0;
@@ -28,9 +29,12 @@
         console.log(oddNumbers);
 
 
+
 // in es6:
         const oddNumbers = numbers.filter(n => n % 2 !== 0);
         console.log(oddNumbers);
+
+
 
 
 // count the number of times a color appears in an array.
@@ -44,7 +48,8 @@
                 } else {
                     totalColors
                 return totalColors;
-            }, {});
+            }
+            });
             return colorCountObject;
         };
         console.log(countColors(colors));
@@ -52,10 +57,32 @@
 
 
 
+// map through an array of strings using reduce
+        const lyrics = ['we', 'all', 'live', 'in', 'a', 'yellow', 'submarine'];
+        const oneLine = lyrics.reduce((previous, current) => previous + ' ' + current);
+        console.log(oneLine);
+
+        // in es6:
+// /**** unfinished ****/
+        // const oneLine = lyrics.reduce ((previous, current) => )
+
+
+
+
+
+
 // create an array of 5 objects with properties 'firstName' and 'lastName'
 
 
+
+
+
+
 // map through the objects and return a message like this: "Good Morning, ${firstName} and ${lastName}
+
+
+
+
 
 
 // let's add an array of numbers using reduce
@@ -72,6 +99,8 @@
         const sum = numbers.reduce((total,currentNumber) => total + currentNumber, 25
         );
         console.log(sum);
+
+
 
 
 
