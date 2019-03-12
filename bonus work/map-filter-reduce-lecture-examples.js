@@ -2,7 +2,7 @@
 "use strict";
 
 // Map & Filter return a new array
-// Reduce returns one value
+// Reduce manipulates the array to return one value
 // ((Emoji example))
 
 // map, filter, reduce only work on collections

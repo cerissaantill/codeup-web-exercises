@@ -46,20 +46,18 @@ const users = [
 /** 2. Use .filter to create an array of user objects where each user object
  *       has at least 3 languages in the languages array.
  */
+        const threeLanguages = users.filter(n => n.languages.length >= 3);
 
-        let threeLanguages = users.filter(function(language){
-            return language.languages.length >= 3;
-        });
         console.log(threeLanguages);
+
 
 
 
 /**  3. Use .map to create an array of strings where each element is a user's email address  */
 
-        let userEmails = users.map(function(emailAddress){
-            return emailAddress.email;
-        });
-        console.log(userEmails);
+        const emailAddresses = users.map(n => n.email);
+
+        console.log(emailAddresses);
 
 
 
@@ -67,10 +65,12 @@ const users = [
 /**  4. Use reduce to get the total years of experience from the list of users.
  *      Once you get the total of years you can use the result to calculate the average.
  */
-        let sumExperience = users.reduce((total, person) => {
-            return total + person.yearsOfExperience;
-        }, 0);
-        console.log(sumExperience);
+        const sumOfYears = (total, user) => total + user.yearsOfExperience;
+
+        const totalYears = users.reduce(sumOfYears, 0);
+
+        console.log(totalYears);
+
 
 
 
@@ -78,15 +78,25 @@ const users = [
 
 /** 5. Use reduce to get the longest email from the list of users.  */
 
-        let theLongestEmail = users.reduce((longestEmail, user) => {
-            console.log(longestEmail);
-            console.log(user);
-            if (longestEmail.length < user.email.length) {
-                return user.email;
-            } return longestEmail;
-        }, "");
-        console.log(theLongestEmail);
 
+        const findLongest = (prev, current) => {
+
+            let myString = current.email;
+
+            if(myString.length > prev.length){
+
+                return myString;
+
+            } else {
+
+                return prev;
+            }
+        };
+
+
+        const longestEmail = users.reduce(findLongest, '');
+
+        console.log(longestEmail);
 
 
 
@@ -95,14 +105,44 @@ const users = [
 /** 6. Use reduce to get the list of user's names in a single string.
  *      Example: Your instructors are: ryan, luis, zach, fernando, justin.
  */
+        const compileList = (list, user) => list + user.name + '';
 
-        let instructorNames = users.reduce((names, person, index) => {
-            if (index === users.length-1) {
-                return "Your instructors are: " + names + "and " + person.name + ".";
-            }
-            return names +  person.name + ", ";
-        }, "");
-        console.log(instructorNames);
+        const listOfNames = users.reduce(compileList, 'Your instructors are: ');
+
+        console.log(listOfNames);
+
+
+
+/** BONUS:    {EXTRA, EXTRA CRISPY}
+    Use reduce to get the unique list of languages from the list of users. */
+
+    const listOfLanguages = (list, user) => {
+
+        list.push(user.languages);
+
+        return list;
+
+    };
+
+
+    console.log(listOfLanguages);
+
+    let languages = users.reduce(listOfLanguages, []);
+
+    languages = languages.flat();  // flattened the Array to get Strings
+
+    languages = new Set(languages); // takes unique values and creates a list object
+
+    languages = Array.from(languages); // turns Set back into an Array
+
+    console.log(languages);
+
+
+
+
+
+// .add is like .push but for Sets
+
 
 
 
