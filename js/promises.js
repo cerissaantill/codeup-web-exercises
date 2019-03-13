@@ -56,20 +56,39 @@
  resolves with the date of the last commit that user made. Reference the
  github api documentation to achieve this.   */
 
+    // FETCH is a type of promise
 
-    fetch('https://api.github.com/users/cerissaantill')
+
+    let headers = {'Authorization': `token ${githubToken}`};
+
+
+    const getLastPush = (username) => {
+        return fetch(`https://api.github.com/users/${username}/events`, {headers: headers})
         .then((data) => {
+            // console.log(data);
             return data.json();
         })
 
-        .then((jsonData) => {
-        console.log(jsonData.login)
+        .then((data) => {
+            console.log(data);
+            data.filter((event) => {
+                return event.type === "PushEvent";
 
-    });
+                // return fetch(data.events_url, {headers: headers});
+            })
+        })
+        .then((data) => {
+            console.log(data);
+            return (data[0].created_at);
+
+        })
+    }
 
 
 
+    getLastPush('cerissaantill').then((timestamp) => console.log(timestamp));
 
+    // return fetch(data.events_url, {headers: headers});
 
 
 
