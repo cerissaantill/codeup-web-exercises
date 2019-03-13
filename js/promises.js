@@ -51,8 +51,6 @@
 //  fetch(url, {headers: {'Authorization': 'token YOUR_TOKEN_HERE'}})
 
 
-
-
 /**
  Create a function that accepts a github username, and returns a promise that
  resolves with the date of the last commit that user made. Reference the
@@ -60,15 +58,11 @@
 
 
     fetch('https://api.github.com/users/cerissaantill')
-
         .then((data) => {
-
             return data.json();
-
         })
 
         .then((jsonData) => {
-
         console.log(jsonData.login)
 
     });
