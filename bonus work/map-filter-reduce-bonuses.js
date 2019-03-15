@@ -75,11 +75,28 @@ const family = [
 /**
 Use map, filter, and reduce to:
 
- 1. Create an array of the first letters of each fruit
+ 1. Create an array of the first letters of each fruit */
+
+    const firstLetter = fruits.filter(function(n) {
+        for (var i = 0; i < array.length; i++) {
+            var firstLetter = array[i].charAt(0).toUpperCase();
+            var section = n.filter(function (section) {
+                return section.header === firstLetter;
+            });
+            if(sections.length === 0) {
+                sections.push([{header: firstLetter}]);
+            } else if (section.length > 0) {
+                sections.push([{header: firstLetter}]);
+            }
+        }
+});
+    console.log(firstLetter);
 
 
 
 
+
+/**
 2. Create array of user objects based on the customers array of objects (each
     user object should just have name and age properties)
 
@@ -116,6 +133,14 @@ Use map, filter, and reduce to:
 1. Create a function that takes in an array of pets and returns an array of the
     length of first names for pugs only. Your output for the given input should
     be [3, 6] for 'Bud' and 'Bowser'
+
+
+
+
+
+
+
+
 
 
 
