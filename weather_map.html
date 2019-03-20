@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Map</title>
+
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet'/>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .coordinates {
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            padding: 5px 10px;
+            margin: 0;
+            font-size: 11px;
+            line-height: 18px;
+            border-radius: 3px;
+            display: none;
+        }
+        .box {
+            border: 1px solid dimgrey;
+            background-color: rgb(242,242,242);
+            width: 20%;
+        }
+        body {
+            background-color: rgb(173,220,251);
+        }
+    </style>
+</head>
+
+<body>
+<h1>Weather Application</h1>
+<h2> </h2>
+<div id="container" class="mx-auto">
+
+    <div id="test" class="d-flex flex-row ml-5 mb-5"></div>
+
+    <div class="row ml-4 mr-4">
+        <div id='map' style='width: 100%; height: 400px;'></div>
+    </div>
+
+</div>
+
+<script
+        src="http://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script src="mapbox-geocoder-utils.js"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.4/mapbox-gl-geocoder.min.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.4/mapbox-gl-geocoder.css' type='text/css' />
+<script src="keys.js"></script>
+
+
+<script>
+    function boxMaker(data, maxday){
+        console.log(data);
+        var html = "";
+        var img;
+        for(var i = 0; i < maxday; i++){
+            for(var j = 0; j < conditions.length; j++){
+                if(data.daily.data[i].icon === conditions[j].condition){
+                    img = "<img alt='icon' src="+ conditions[j].icon + "/>"
+                }
+            }
+            html +="<div class='box'><p><strong>" + data.daily.data[i].temperatureHigh + "° " + "/ " + data.daily.data[i].apparentTemperatureLow + "°" + "</strong></p>"
+            html += img;
+            html += "<p>" + "<strong>Clouds: </strong>" + data.daily.data[i].summary + "</p>"
+            html += "<p>" + "<strong>Humidity: </strong>" + data.daily.data[i].humidity + "</p>"
+            html += "<p>" + "<strong>Wind: </strong>" + data.daily.data[i].windSpeed + "</p>"
+            html += "<p>" + "<strong>Pressure: </strong>" + data.daily.data[i].pressure + "</p></div>"
+        }
+        $("#test").html(html)
+    }
+    var conditions =
+        [
+            {condition: 'cloudy-day', icon:"climacons-master/SVG/Cloud.svg"},
+            {condition: 'clear-night', icon: "climacons-master/SVG/Moon.svg"},
+            {condition: 'rain', icon: "climacons-master/SVG/Cloud-Rain.svg"},
+            {condition: 'snow', icon:"climacons-master/SVG/Cloud-Snow.svg"},
+            {condition: 'sleet', icon: "climacons-master/SVG/Cloud-Snow.svg"},
+            {condition: 'wind', icon: "climacons-master/SVG/Cloud-Wind.svg"},
+            {condition: 'fog', icon: "climacons-master/SVG/Cloud-Fog.svg"},
+            {condition: 'cloudy', icon: "climacons-master/SVG/Cloud.svg"},
+            {condition: 'partly-cloudy-day', icon: "climacons-master/SVG/Cloud-Sun.svg"},
+            {condition: 'partly-cloudy-night', icon: "climacons-master/SVG/Cloud-Moon.svg"}
+        ];
+    $(document).ready(function () {
+        // sets Map
+        mapboxgl.accessToken = mapBoxKey;
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v9',
+            zoom: 4,
+        });
+        //Sets center of map at SA,TX
+        geocode("San Antonio, Texas", mapBoxKey).then(function (data) {
+            map.setCenter(data);
+            var marker = new mapboxgl.Marker({
+                draggable: true
+            })
+                .setLngLat(data)
+                .addTo(map);
+            map.addControl(new MapboxGeocoder({
+                accessToken: mapBoxKey
+            }));
+            //Sets SA,TX as default for darkSky
+            var darkSkyUrl = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4241,-98.4936"
+            $.ajax(darkSkyUrl).done(function (data) {
+                reverseGeocode({lng: -98.4936, lat: 29.4241}, mapBoxKey).then(function (results) {
+                    console.log(results);
+                    results = results.split(",");
+                    results = results.slice(0, 2);
+                    results = results.join(",");
+                    $("h2").html(results)
+                })
+                boxMaker(data, 5)
+            })
+            //Draggable marker function
+            function onDragEnd() {
+                var lngLat = marker.getLngLat();
+                //using marker latitude and longitude to add on to out URL
+                var darkSkyUrl = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + lngLat.lat + "," + lngLat.lng + ""
+                $.ajax(darkSkyUrl).done(function (data) {
+                    // sets h2 with name of Current city
+                    reverseGeocode({lng: lngLat.lng, lat: lngLat.lat}, mapBoxKey).then(function (results) {
+                        console.log(results);
+                        results = results.split(",");
+                        results = results.slice(0, 2);
+                        results = results.join(",")
+                        $("h2").html(results)
+                    })
+                    //boxes for new information
+                    boxMaker(data, 5);
+                })
+            }
+            //"event listener" for marker
+            marker.on('dragend', onDragEnd);
+        })
+    })
+</script>
+</body>
+</html>
